@@ -5,8 +5,6 @@ gem 'rails', '3.1.0'
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
-gem 'sqlite3'
-
 # Use unicorn as the web server
 # gem 'unicorn'
 
@@ -24,6 +22,7 @@ gem 'sqlite3'
 # gem 'aws-s3', :require => 'aws/s3'
 
 gem 'haml'
+gem 'pg'
 
 # Gems used only for assets and not required
 # in production environments by default.
@@ -33,6 +32,12 @@ group :assets do
 
   gem 'uglifier'
 end
+
+group :production do
+end
+
+group :development do
+end 
 
 # Bundle gems for the local environment. Make sure to
 # put test-only gems in this group so their generators
