@@ -9,20 +9,35 @@
     = yield :stylesheet_includes
 
   %body{:class => "#{@body_class}"}
-    #root
-      #main.container
-        #messages
-          - display_flash(:notice, :error, :warning)
-        #page{:class => content_given?(:sidebar) ? 'pane' : nil}
-          .header
-            %h1
-              = @page_title
-          #contents
+    %header#header
+      .header_content
+        %h1#logo= link_to 'Home', root_path
+        %ul
+          %li= link_to "About", corporate_path(page: "about")
+          %li= link_to "Contact us", corporate_path(page: "contact")
+          
+    %section#page
+      .container
+        .header
+          %h1
+            = @page_title
+        - flash.each do |key, value|
+          %div{:class=> key == :alert ? "error" : "notice"}= value
+      %section#content
+        .container
+          - if content_for? :sidebar
+            .row
+              .content_body.span8
+                = yield
+              #sidebar.span4
+                = yield :sidebar
+          - else
             = yield
-        - if content_given?(:sidebar)
-          #sidebar
-            = yield :sidebar
-      #root_footer
 
-    #footer
-      = raw('&copy;') + " #{Time.now.year} kabupaten.org"
+      %section#footer
+        = raw('&copy;') + " #{Time.now.year} kabupaten.org"
+        .social_networks
+          %a(href="https://twitter.com/kabupaten_org" class="twitter-follow-button" data-show-count="false") Follow @kabupaten_org
+          :plain
+            <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+      
