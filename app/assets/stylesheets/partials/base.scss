@@ -1,0 +1,24 @@
+@import "compass/reset";
+@import "compass/utilities";
+@import "compass/css3/border-radius";
+
+$blueprint-table-header-color: #C1D6E3;
+$blueprint-table-stripe-color: #F3F8FF;
+// All the blueprint stuff, MINUS typography, which we handle manually.
+// These are all taken from the top of blueprint/screen.sass
+@import "blueprint/colors";
+@import "blueprint/grid";
+@import "blueprint/utilities";
+@import "blueprint/form";
+@import "blueprint/interaction";
+@import "blueprint/debug";
+
+@import "blueprint/print";
+@import "blueprint/ie";
+
+@include blueprint-typography;
+
+noscript {
+  color:  red;
+  font-weight:  bold;
+}

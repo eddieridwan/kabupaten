@@ -1,0 +1,60 @@
+@import "partials/base.scss";
+@import "compass/css3/shared";
+@import "bootstrap";
+
+
+header#header {
+  @include clearfix;
+  width: 100%;
+  padding: auto;
+  height: 61px;
+  background: #527D97;
+  /*background: url(/images/bg-header.png) no-repeat 50% 0%;*/
+  margin: 6px 0px 0px 0px;
+  margin-top: 0;
+  display: block;
+  .header_content {
+    width: 970px;
+    display: block;
+    margin: auto;
+    margin-top: 0px;
+  }
+  ul { 
+    list-style: none;
+    margin:0;
+    padding: 0;
+    li {
+      margin-top: 6px;
+      margin-left: 12px;
+      color: #5D5D5D;
+      float: right;
+      img {
+        height: 45px;
+        width: 34px;
+      }
+    }
+    li.name { 
+      margin-top: 8px;
+      text-align: right;
+      color: #BDD1DB;
+    }
+  }
+  h1#logo {
+    text-indent: -20000em;
+    line-height: 1px;
+    margin: 1px;
+    float: left;
+    a {
+      background: image-url("logo.jpg") no-repeat 0% 0%;
+      display: block;
+      height: 40px;
+      width: 100px;
+    }
+  }
+}
+
+#footer {
+  .social_networks {
+    float:  right;
+  }
+}
