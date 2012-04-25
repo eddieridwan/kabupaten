@@ -1,9 +1,15 @@
 @import "base.scss";
 
+body, html {
+  height: 100%;
+}
 
 body {
-  background: #8eb4cc image-url('body-bg.png') top center repeat-x;
-
+  .bg {
+    background: #8eb4cc image-url('body-bg.png') top center repeat-x;
+    height: 100%;
+  }
+  
   #messages {
     .flash {
       font-weight: bold;
@@ -21,10 +27,12 @@ body {
       background-color: #ddffc8; }
   }
   
-  #content {
+  .main {
     margin-left: 20px;
   }
-  
+  .sidebar {
+    margin-right:20px;
+  }
   header {
     margin-left: 20px;
     margin-bottom: 10px;
@@ -35,6 +43,7 @@ body {
       margin-left: 20px;
     }
     .social_networks {
+      margin-right: 20px;
     }
   }
 }

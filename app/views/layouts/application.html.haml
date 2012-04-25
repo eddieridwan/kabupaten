@@ -9,33 +9,33 @@
     = yield :stylesheet_includes
 
   %body{:class => "#{@body_class}"}
-    .container
+    .container.bg
       #menubar.navbar
         #site-actions.navbar-inner
-          .container
-            %a.brand{ href: root_path } kabupaten.org
-            %ul.nav.pull-right
-              %li{ class: "#{'active' if current_page?(root_path)}" }= link_to 'Home', root_path    
-              %li{ class: "#{'active' if current_page?(corporate_path(page: "about"))}" }= link_to "About", corporate_path(page: "about")
-              %li{ class: "#{'active' if current_page?(corporate_path(page: "contact"))}"}= link_to "Contact us", corporate_path(page: "contact")
-          
+          %a.brand{ href: root_path } kabupaten.org
+          %ul.nav.pull-right
+            %li{ class: "#{'active' if current_page?(root_path)}" }= link_to 'Home', root_path    
+            %li{ class: "#{'active' if current_page?(corporate_path(page: "about"))}" }= link_to "About", corporate_path(page: "about")
+            %li{ class: "#{'active' if current_page?(corporate_path(page: "contact"))}"}= link_to "Contact us", corporate_path(page: "contact")
+
       %header
         %h2
           = @page_title
         - flash.each do |key, value|
           %div{:class=> key == :alert ? "error" : "notice"}= value
-      %section#content
-        .container
-          - if content_for? :sidebar
-            .row
-              .content_body.span8
-                = yield
-              #sidebar.span4
-                = yield :sidebar
-          - else
-            .row
-              .content_body.span12
-                = yield
+      - if content_for? :sidebar
+        .row
+          .span8
+            .main
+              = yield
+          .span4
+            .sidebar
+              = yield :sidebar
+      - else
+        .row
+          .span12
+            .main
+              = yield
 
       %footer
         .nav-bar.navbar-fixed-bottom
