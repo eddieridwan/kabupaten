@@ -4,7 +4,7 @@
     %meta{ 'http-equiv' => 'Content-Type', :content => 'text/html; charset=utf-8' }
     %title= @page_title || 'Kabupaten'
     = stylesheet_link_tag    "application"
-    = javascript_include_tag "application", "bootstrap.js", "bootstrap.min.js"
+    = javascript_include_tag "application", "jquery", "bootstrap"
     = csrf_meta_tag
     = yield :stylesheet_includes
 
@@ -15,9 +15,9 @@
           .container
             %a.brand{ href: root_path } kabupaten.org
             %ul.nav.pull-right
-              %li.active= link_to 'Home', root_path    
-              %li= link_to "About", corporate_path(page: "about")
-              %li= link_to "Contact us", corporate_path(page: "contact")
+              %li{ class: "#{'active' if current_page?(root_path)}" }= link_to 'Home', root_path    
+              %li{ class: "#{'active' if current_page?(corporate_path(page: "about"))}" }= link_to "About", corporate_path(page: "about")
+              %li{ class: "#{'active' if current_page?(corporate_path(page: "contact"))}"}= link_to "Contact us", corporate_path(page: "contact")
           
       %header
         %h2
