@@ -1,26 +1,27 @@
 !!!
-%html
+%html{ 'lang' => 'en' }
   %head
     %meta{ 'http-equiv' => 'Content-Type', :content => 'text/html; charset=utf-8' }
     %title= @page_title || 'Kabupaten'
     = stylesheet_link_tag    "application"
-    = javascript_include_tag "application"
+    = javascript_include_tag "application", "bootstrap.js", "bootstrap.min.js"
     = csrf_meta_tag
     = yield :stylesheet_includes
 
   %body{:class => "#{@body_class}"}
-    %header#header
-      .header_content
-        %h1#logo= link_to 'Home', root_path
-        %ul
-          %li= link_to "Contact us", corporate_path(page: "contact")
-          %li= link_to "About", corporate_path(page: "about")
+    .container
+      #menubar.navbar
+        #site-actions.navbar-inner
+          .container
+            %a.brand{ href: root_path } kabupaten.org
+            %ul.nav.pull-right
+              %li.active= link_to 'Home', root_path    
+              %li= link_to "About", corporate_path(page: "about")
+              %li= link_to "Contact us", corporate_path(page: "contact")
           
-    %section#page
-      .container
-        .header
-          %h1
-            = @page_title
+      %header
+        %h2
+          = @page_title
         - flash.each do |key, value|
           %div{:class=> key == :alert ? "error" : "notice"}= value
       %section#content
@@ -32,12 +33,16 @@
               #sidebar.span4
                 = yield :sidebar
           - else
-            = yield
+            .row
+              .content_body.span12
+                = yield
 
-      %section#footer
-        = raw('&copy;') + " #{Time.now.year} kabupaten.org"
-        .social_networks
-          %a(href="https://twitter.com/kabupaten_org" class="twitter-follow-button" data-show-count="false") Follow @kabupaten_org
-          :plain
-            <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+      %footer
+        .nav-bar.navbar-fixed-bottom
+          .container
+            %span.copyright= raw('&copy;') + " #{Time.now.year} kabupaten.org"
+            %span.social_networks.pull-right
+              %a(href="https://twitter.com/kabupaten_org" class="twitter-follow-button" data-show-count="false") Follow @kabupaten_org
+              :plain
+                <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
       

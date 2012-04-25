@@ -30,7 +30,6 @@ group :assets do
   gem 'coffee-rails',     "~> 3.1.0"
   gem 'sass-rails',       "  ~> 3.1.0"
   gem 'uglifier',         '>= 1.0.3'
-  gem 'compass-rails'
 end
 
 group :production do
