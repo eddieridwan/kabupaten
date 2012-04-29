@@ -4,4 +4,4 @@
 # If you change this key, all old signed cookies will become invalid!
 # Make sure the secret is at least 30 characters and all random,
 # no regular words or you'll be exposed to dictionary attacks.
-Kabupaten::Application.config.secret_token = '53b24c8c1399f692f09045e3a4c93344a161f5d5c8db4084e52a9a8d8cd09522bb7c295768f8c8fcfd41576722188eb93af2d57edc1cc20c9124a98df3af3503'
+Kabupaten::Application.config.secret_token = 'ec3df3ee0944ef3775100ec8b1c8fd2527d4cfa2dd8e58d57ade380b740a5270c2405c816f64e6681c06b6fc37e25741adfc2e06b1afa59d396b6ced52dfc90b'

@@ -1,0 +1,2 @@
+rvm ruby-1.9.2-p290@kabupaten --create
+rvm wrapper ruby-1.9.2-p290
