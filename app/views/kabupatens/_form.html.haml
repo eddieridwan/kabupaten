@@ -1,0 +1,25 @@
+= form_for @kabupaten do |f|
+  -if @kabupaten.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@kabupaten.errors.count, "error")} prohibited this kabupaten from being saved:"
+      %ul
+        - @kabupaten.errors.full_messages.each do |msg|
+          %li= msg
+
+  .field
+    = f.label :name
+    = f.text_field :name
+  .field
+    = f.label :description
+    = f.text_area :description
+  .field
+    = f.label :area
+    = f.number_field :area
+  .field
+    = f.label :population
+    = f.number_field :population
+  .field
+    = f.label :province_id
+    = f.number_field :province_id
+  .actions
+    = f.submit 'Save'

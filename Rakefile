@@ -4,4 +4,4 @@
 
 require File.expand_path('../config/application', __FILE__)
 
-Kabupaten::Application.load_tasks
+Kabupatenku::Application.load_tasks

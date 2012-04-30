@@ -1,4 +1,6 @@
-Kabupaten::Application.routes.draw do
+Kabupatenku::Application.routes.draw do
+  resources :kabupatens
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

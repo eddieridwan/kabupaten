@@ -1,0 +1,21 @@
+%p#notice= notice
+
+%p
+  %b Name:
+  = @kabupaten.name
+%p
+  %b Description:
+  = @kabupaten.description
+%p
+  %b Area:
+  = @kabupaten.area
+%p
+  %b Population:
+  = @kabupaten.population
+%p
+  %b Province:
+  = @kabupaten.province_id
+
+= link_to 'Edit', edit_kabupaten_path(@kabupaten)
+\|
+= link_to 'Back', kabupatens_path
