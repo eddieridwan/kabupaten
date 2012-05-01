@@ -1,7 +1,7 @@
-%h1 Editing kabupaten
+- @page_title = "Editing kabupaten"
+- @body_class = "kabupatens"
 
 = render 'form'
 
-= link_to 'Show', @kabupaten
-\|
-= link_to 'Back', kabupatens_path
+= link_to 'Show', @kabupaten, :class => 'btn'
+= link_to 'Back', kabupatens_path, :class => 'btn'

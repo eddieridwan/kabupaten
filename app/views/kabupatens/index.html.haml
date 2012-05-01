@@ -1,27 +1,24 @@
-%h1 Listing kabupatens
+- @page_title = "Kabupatens"
+- @body_class = "kabupatens"
 
-%table
+%table.table.table-striped
   %tr
+    %th Province
     %th Name
-    %th Description
     %th Area
     %th Population
-    %th Province
-    %th
     %th
     %th
 
   - @kabupatens.each do |kabupaten|
     %tr
-      %td= kabupaten.name
-      %td= kabupaten.description
+      %td= kabupaten.province_id
+      %td= link_to kabupaten.name, kabupaten
       %td= kabupaten.area
       %td= kabupaten.population
-      %td= kabupaten.province_id
-      %td= link_to 'Show', kabupaten
-      %td= link_to 'Edit', edit_kabupaten_path(kabupaten)
-      %td= link_to 'Destroy', kabupaten, :confirm => 'Are you sure?', :method => :delete
+      %td.btn.btn-mini= link_to 'Edit', edit_kabupaten_path(kabupaten)
+      %td.btn.btn-mini.btn-danger= link_to 'Destroy', kabupaten, :confirm => 'Are you sure?', :method => :delete
 
 %br
 
-= link_to 'New Kabupaten', new_kabupaten_path
+.btn.btn-primary= link_to 'New', new_kabupaten_path

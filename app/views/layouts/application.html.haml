@@ -15,6 +15,7 @@
           %a.brand{ href: root_path } kabupaten.org
           %ul.nav.pull-right
             %li{ class: "#{'active' if current_page?(root_path)}" }= link_to 'Home', root_path    
+            %li{ class: "#{'active' if current_page?(controller: 'kabupatens')}" }= link_to 'Kabupaten', kabupatens_path    
             %li{ class: "#{'active' if current_page?(corporate_path(page: "about"))}" }= link_to "About", corporate_path(page: "about")
             %li{ class: "#{'active' if current_page?(corporate_path(page: "contact"))}"}= link_to "Contact us", corporate_path(page: "contact")
 

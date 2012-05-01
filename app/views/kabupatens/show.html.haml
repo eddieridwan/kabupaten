@@ -1,8 +1,8 @@
+- @page_title = "Kabupaten #{@kabupaten.name}"
+- @body_class = "kabupatens"
+
 %p#notice= notice
 
-%p
-  %b Name:
-  = @kabupaten.name
 %p
   %b Description:
   = @kabupaten.description
@@ -16,6 +16,5 @@
   %b Province:
   = @kabupaten.province_id
 
-= link_to 'Edit', edit_kabupaten_path(@kabupaten)
-\|
-= link_to 'Back', kabupatens_path
+= link_to 'Edit', edit_kabupaten_path(@kabupaten), :class => 'btn'
+= link_to 'Back', kabupatens_path, :class => 'btn'
