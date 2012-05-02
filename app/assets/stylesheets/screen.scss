@@ -5,8 +5,9 @@ body, html {
 }
 
 body {
+  background: #8eb4cc image-url('body-bg.png') top center repeat-x;
   .bg {
-    background: #8eb4cc image-url('body-bg.png') top center repeat-x;
+    background: white;
     height: 100%;
   }
   
@@ -25,6 +26,13 @@ body {
     #notice {
       color: #444444;
       background-color: #ddffc8; }
+  }
+  
+  .bottom-content {
+    margin-left: 20px;
+  }
+  .bottom-space {
+    margin-top: 30px;
   }
   
   .main {

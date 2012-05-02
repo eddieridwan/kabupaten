@@ -6,15 +6,19 @@
 %p
   %b Description:
   = @kabupaten.description
-%p
-  %b Area:
-  = @kabupaten.area
-%p
-  %b Population:
-  = @kabupaten.population
-%p
-  %b Province:
-  = @kabupaten.province_id
 
-= link_to 'Edit', edit_kabupaten_path(@kabupaten), :class => 'btn'
-= link_to 'Back', kabupatens_path, :class => 'btn'
+- content_for :sidebar do
+
+  %p
+    %b Area:
+    = @kabupaten.area
+  %p
+    %b Population:
+    = @kabupaten.population
+  %p
+    %b Province:
+    = @kabupaten.province_id
+
+- content_for :bottom do
+  = link_to 'Edit', edit_kabupaten_path(@kabupaten), :class => 'btn'
+  = link_to 'Back', kabupatens_path, :class => 'btn'

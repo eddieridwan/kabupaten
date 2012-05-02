@@ -7,8 +7,7 @@
     %th Name
     %th Area
     %th Population
-    %th
-    %th
+    %th 
 
   - @kabupatens.each do |kabupaten|
     %tr
@@ -17,8 +16,7 @@
       %td= kabupaten.area
       %td= kabupaten.population
       %td.btn.btn-mini= link_to 'Edit', edit_kabupaten_path(kabupaten)
-      %td.btn.btn-mini.btn-danger= link_to 'Destroy', kabupaten, :confirm => 'Are you sure?', :method => :delete
 
 %br
 
-.btn.btn-primary= link_to 'New', new_kabupaten_path
+= link_to 'New', new_kabupaten_path, :class => 'btn btn-primary'
