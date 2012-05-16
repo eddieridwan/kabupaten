@@ -11,7 +11,7 @@
 
   - @kabupatens.each do |kabupaten|
     %tr
-      %td= kabupaten.province_id
+      %td= kabupaten.province.name
       %td= link_to kabupaten.name, kabupaten
       %td= kabupaten.area
       %td= kabupaten.population
@@ -19,4 +19,4 @@
 
 %br
 
-= link_to 'New', new_kabupaten_path, :class => 'btn btn-primary'
+= link_to 'Add New', new_kabupaten_path, :class => 'btn btn-primary'

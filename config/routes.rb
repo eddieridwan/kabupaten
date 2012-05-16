@@ -1,4 +1,6 @@
 Kabupatenku::Application.routes.draw do
+  resources :provinces
+
   resources :kabupatens
 
   # The priority is based upon order of creation:

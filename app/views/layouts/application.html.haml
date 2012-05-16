@@ -20,10 +20,10 @@
             %li{ class: "#{'active' if current_page?(corporate_path(page: "contact"))}"}= link_to "Contact us", corporate_path(page: "contact")
 
       %header
+        #messages
+          - display_flash
         %h2
           = @page_title
-        - flash.each do |key, value|
-          %div{:class=> key == :alert ? "error" : "notice"}= value
       - if content_for? :sidebar
         .row
           .span12

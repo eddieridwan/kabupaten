@@ -13,7 +13,7 @@
   .field.control-group
     = f.label :description, :class => 'control-label'
     .controls
-      = f.text_area :description, :cols => 100, :rows => 5, :class => 'text_area'
+      = f.text_area :description_en, :cols => 100, :rows => 5, :class => 'text_area'
   .field.control-group
     = f.label :area, :class => 'control-label'
     .controls
@@ -25,6 +25,6 @@
   .field.control-group
     = f.label :province_id, :class => 'control-label'
     .controls
-      = f.number_field :province_id, :class => 'number_field'
+      = f.collection_select :province_id, Province.all(:order=>:name), :id, :name, {:include_blank => true}
   .actions.form-actions
     = f.submit 'Save', :class => 'btn btn-primary'

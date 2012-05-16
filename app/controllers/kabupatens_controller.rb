@@ -56,11 +56,11 @@ class KabupatensController < ApplicationController
   # PUT /kabupatens/1
   # PUT /kabupatens/1.json
   def update
-    @kabupaten = kabupaten.find(params[:id])
+    @kabupaten = Kabupaten.find(params[:id])
 
     respond_to do |format|
       if @kabupaten.update_attributes(params[:kabupaten])
-        format.html { redirect_to @kabupaten, notice: 'kabupaten was successfully updated.' }
+        format.html { redirect_to @kabupaten, notice: 'Kabupaten was successfully updated.' }
         format.json { head :ok }
       else
         format.html { render action: "edit" }

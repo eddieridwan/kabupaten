@@ -1,0 +1,30 @@
+= form_for @province, :html => { :class => 'form-horizontal' }  do |f|
+  -if @province.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@province.errors.count, "error")} prohibited this province from being saved:"
+      %ul
+        - @province.errors.full_messages.each do |msg|
+          %li= msg
+
+  .field.control_group
+    = f.label :name, :class => 'control-label'
+    .controls
+      = f.text_field :name, :class => 'text_field'
+  .field.control_group
+    = f.label :description, :class => 'control-label'
+    .controls
+      = f.text_area :description_en, :class => 'text_area'
+  .field.control_group
+    = f.label :description_id, :class => 'control-label'
+    .controls
+      = f.text_area :description_id, :class => 'text_area'
+  .field.control_group
+    = f.label :area, :class => 'control-label'
+    .controls
+      = f.number_field :area, :class => 'number_field'
+  .field.control_group
+    = f.label :population, :class => 'control-label'
+    .controls
+      = f.number_field :population, :class => 'number_field'
+  .actions.form_actions
+    = f.submit 'Save', :class => 'btn btn-primary'

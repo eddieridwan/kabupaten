@@ -1,11 +1,11 @@
 - @page_title = "Kabupaten #{@kabupaten.name}"
 - @body_class = "kabupatens"
 
-%p#notice= notice
+/ %p#notice= notice
 
 %p
   %b Description:
-  = @kabupaten.description
+  = @kabupaten.description_en
 
 - content_for :sidebar do
 
@@ -17,7 +17,7 @@
     = @kabupaten.population
   %p
     %b Province:
-    = @kabupaten.province_id
+    = @kabupaten.province.name
 
 - content_for :bottom do
   = link_to 'Edit', edit_kabupaten_path(@kabupaten), :class => 'btn'

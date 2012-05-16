@@ -1,0 +1,8 @@
+- @page_title = "Editing province"
+- @body_class = "provinces"
+
+= render 'form'
+
+= link_to 'Show', @province, :class => 'btn'
+= link_to 'Back', provinces_path, :class => 'btn'
+= link_to 'Destroy', @province, :class => 'btn btn-danger', :confirm => 'Are you sure?', :method => :delete

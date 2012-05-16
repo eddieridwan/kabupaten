@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  name: MyString
+  description_en: MyText
+  description_id: MyText
+  area: 1
+  population: 1
+
+two:
+  name: MyString
+  description_en: MyText
+  description_id: MyText
+  area: 1
+  population: 1

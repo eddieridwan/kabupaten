@@ -1,0 +1,21 @@
+- @page_title = "Province #{@province.name}"
+- @body_class = "provinces"
+
+/ %p#notice= notice
+
+%p
+  %b Description:
+  = @province.description_en
+  
+- content_for :sidebar do
+
+  %p
+    %b Area:
+    = @province.area
+  %p
+    %b Population:
+    = @province.population
+
+- content_for :bottom do
+  = link_to 'Edit', edit_province_path(@province), :class => 'btn'
+  = link_to 'Back', provinces_path, :class => 'btn'

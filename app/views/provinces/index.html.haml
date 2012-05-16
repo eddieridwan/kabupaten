@@ -1,0 +1,24 @@
+- @page_title = "Provinces"
+- @body_class = "provinces"
+
+%table.table.table-striped
+  %tr
+    %th Name
+    %th Description
+    %th Area
+    %th Population
+    %th
+    %th
+    %th
+
+  - @provinces.each do |province|
+    %tr
+      %td= link_to province.name, province
+      %td= province.description_en
+      %td= province.area
+      %td= province.population
+      %td.btn.btn-mini= link_to 'Edit', edit_province_path(province)
+
+%br
+
+= link_to 'Add New', new_province_path, :class => 'btn btn-primary'

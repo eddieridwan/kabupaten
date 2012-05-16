@@ -11,14 +11,25 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120429123236) do
+ActiveRecord::Schema.define(:version => 20120516110418) do
 
   create_table "kabupatens", :force => true do |t|
     t.string   "name"
-    t.text     "description"
+    t.text     "description_en"
+    t.text     "description_id"
     t.integer  "area"
     t.integer  "population"
     t.integer  "province_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "provinces", :force => true do |t|
+    t.string   "name"
+    t.text     "description_en"
+    t.text     "description_id"
+    t.integer  "area"
+    t.integer  "population"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
