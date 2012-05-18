@@ -1,4 +1,4 @@
-class Province < ActiveRecord::Base
+class Dt2Category < ActiveRecord::Base
   
   has_many :kabupatens
   
