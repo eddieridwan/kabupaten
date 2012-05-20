@@ -1,22 +1,30 @@
-- @page_title = "Kabupatens"
+- @page_title = "List of Kabupaten/Kota"
 - @body_class = "kabupatens"
 
-%table.table.table-striped
-  %tr
-    %th Province
-    %th Name
-    %th Area
-    %th Population
-    %th 
+- if @kabupatens
 
-  - @kabupatens.each do |kabupaten|
+  %p= paginate_summary_info("kabupaten/kota", @kabupatens)
+  
+  %table.table.table-striped
     %tr
-      %td= kabupaten.province.name
-      %td= link_to kabupaten.name, kabupaten
-      %td= kabupaten.area
-      %td= kabupaten.population
-      %td.btn.btn-mini= link_to 'Edit', edit_kabupaten_path(kabupaten)
+      %th Province
+      %th Name
+      %th Area
+      %th Population
+      %th 
 
+    - @kabupatens.each do |kabupaten|
+      %tr
+        %td= link_to kabupaten.province.name, kabupaten.province
+        %td= link_to kabupaten.category_name, kabupaten
+        %td= kabupaten.area
+        %td= kabupaten.population
+        %td.btn.btn-mini= link_to 'Edit', edit_kabupaten_path(kabupaten)
+        
+  = will_paginate @questions
+  
+-else
+  %p There are no kabupatens to list
 %br
 
 = link_to 'Add New', new_kabupaten_path, :class => 'btn btn-primary'

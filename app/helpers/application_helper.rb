@@ -18,4 +18,17 @@ module ApplicationHelper
     end
     nil
   end
+  
+  def paginate_summary_info(model_str, entries)
+    if entries.respond_to?(:total_pages)
+      page_entries_info entries, :model => model_str.singularize
+    else
+      if entries.size > 1
+        "Displaying <b>all #{entries.size}</b> #{model_str.pluralize}"
+      else
+        "Displaying <b>1</b> #{model_str.singularize}"
+      end
+    end
+  end
+  
 end

@@ -26,7 +26,7 @@
           = @page_title
       - if content_for? :sidebar
         .row
-          .span12
+          .span12.bg
             .row
               .span8
                 .main
@@ -38,7 +38,7 @@
               = yield :bottom
       - else
         .row
-          .span12
+          .span12.bg
             .main
               = yield        
 

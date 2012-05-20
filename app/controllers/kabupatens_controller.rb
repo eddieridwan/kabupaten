@@ -2,7 +2,7 @@ class KabupatensController < ApplicationController
   # GET /kabupatens
   # GET /kabupatens.json
   def index
-    @kabupatens = Kabupaten.all
+    @kabupatens = Kabupaten.paginate(page: params[:page], per_page: 15)
 
     respond_to do |format|
       format.html # index.html.erb

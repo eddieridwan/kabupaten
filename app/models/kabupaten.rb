@@ -5,4 +5,8 @@ class Kabupaten < ActiveRecord::Base
   
   validates_uniqueness_of :name
   
+  def category_name
+    category.name + ' ' + name
+  end
+  
 end

@@ -31,6 +31,8 @@ GEM
       multi_json (~> 1.0)
     ansi (1.4.2)
     arel (2.2.3)
+    bootstrap-will_paginate (0.0.7)
+      will_paginate
     builder (3.0.0)
     coffee-rails (3.1.1)
       coffee-script (>= 2.2.0)
@@ -110,11 +112,13 @@ GEM
     uglifier (1.2.4)
       execjs (>= 0.3.0)
       multi_json (>= 1.0.2)
+    will_paginate (3.0.3)
 
 PLATFORMS
   ruby
 
 DEPENDENCIES
+  bootstrap-will_paginate
   coffee-rails (~> 3.1.0)
   haml
   haml-rails (= 0.3.4)
@@ -124,3 +128,4 @@ DEPENDENCIES
   sass-rails (= 3.1.1)
   turn
   uglifier
+  will_paginate (~> 3.0)

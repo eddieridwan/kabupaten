@@ -5,10 +5,11 @@ gem 'rails', '3.1.1'
 # Bundle edge Rails instead:
 # gem 'rails',     :git => 'git://github.com/rails/rails.git'
 
+gem 'bootstrap-will_paginate'
 gem 'haml'
-gem 'haml-rails', '= 0.3.4'
+gem 'haml-rails',             '= 0.3.4'
 gem 'pg'
-
+gem 'will_paginate',          '~> 3.0'
 
 # Gems used only for assets and not required
 # in production environments by default.
