@@ -1,4 +1,7 @@
 class KabupatensController < ApplicationController
+  
+  before_filter :authenticate, :except => [:index, :show]
+  
   # GET /kabupatens
   # GET /kabupatens.json
   def index
@@ -80,4 +83,5 @@ class KabupatensController < ApplicationController
       format.json { head :ok }
     end
   end
+  
 end

@@ -11,6 +11,10 @@
     .controls
       = f.text_field :name, :class => 'text_field'
   .field.control-group
+    = f.label :category_id, :class => 'control-label'
+    .controls
+      = f.collection_select :category_id, Dt2Category.all(:order=>:name), :id, :name, {:value => "Kabupaten"}
+  .field.control-group
     = f.label :description, :class => 'control-label'
     .controls
       = f.text_area :description_en, :cols => 100, :rows => 5, :class => 'text_area'
@@ -22,6 +26,10 @@
     = f.label :population, :class => 'control-label'
     .controls
       = f.number_field :population, :class => 'number_field'
+  .field.control-group
+    = f.label :capital, :class => 'control-label'
+    .controls
+      = f.text_field :capital, :class => 'text_field'
   .field.control-group
     = f.label :province_id, :class => 'control-label'
     .controls

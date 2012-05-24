@@ -1,7 +1,7 @@
 - @page_title = "List of Kabupaten/Kota"
 - @body_class = "kabupatens"
 
-- if @kabupatens
+- if @kabupatens.present?
 
   %p= paginate_summary_info("kabupaten/kota", @kabupatens)
   
