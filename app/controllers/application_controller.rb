@@ -12,7 +12,7 @@ class ApplicationController < ActionController::Base
   
   def authenticate
     authenticate_or_request_with_http_basic do |username, password| 
-      valid_user = (username == APP_CONFIG["basic_auth_name"] && password == APP_CONFIG["basic_auth_password"])
+      valid_user = (username == ENV['BASIC_AUTH_NAME'] && password == ENV['BASIC_AUTH_PASSWORD'])
       if !valid_user && session[:denied_user].present?
         session[:denied_user] = nil
         false

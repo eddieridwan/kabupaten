@@ -13,7 +13,7 @@ module Kabupatenku
   class Application < Rails::Application
     
     # load additional config options via config.yml
-    CONFIG = YAML.load(File.read(Rails.root.to_s + '/config/app_config.yml'))
+    # CONFIG = YAML.load(File.read(Rails.root.to_s + '/config/app_config.yml'))
     
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
@@ -60,5 +60,5 @@ module Kabupatenku
   end
 end
 
-APP_CONFIG = Kabupatenku::Application::CONFIG[Rails.env]
+# APP_CONFIG = Kabupatenku::Application::CONFIG[Rails.env]
 
