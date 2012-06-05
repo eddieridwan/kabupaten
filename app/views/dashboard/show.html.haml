@@ -1,18 +1,37 @@
-%p
-  This is the landing page for kabupaten.org.
-%p
-  It will provide links to information about each kabupaten.
-  We are also thinking of the following:
-  %ul
-    %li News feeds of relevant Indonesian regional development topics
-    %li List of recent contributed articles
-    %li List of recent reports uploaded by contributors
-    %li List of upcoming projects
-    %li Link to list of volunteers looking for projects
-
+- if I18n.locale == :en
+  %p
+    This is the landing page for kabupaten.org.
+  %p
+    It will show topics of current interest relevant to Indonesian regional development.
+    We are thinking of the following:
+    %ul
+      %li News feeds of relevant Indonesian regional development topics
+      %li List of recent contributed articles
+      %li List of recent reports uploaded by contributors
+      %li List of upcoming projects
+      %li Link to list of volunteers looking for projects
+- elsif I18n.locale == :id
+  %p
+    Halaman ini adalah beranda kabupaten.org.
+  %p
+    Halaman ini akan memuat informasi pembangunan daerah yang sedang aktif dibahas.
+    Informasi yang akan disajikan antara lain:
+    %ul
+      %li Berita seputar pembangunan daerah
+      %li Artikel baru yang ditulis oleh para kontributor
+      %li Laporan yang baru di-upload oleh para kontributor
+      %li Daftar proyek yang aktif atau sedang dikembangkan
+      %li Daftar relawan domestik dan internasional yang ingin bergabung dengan proyek/kegiatan pembangunan daerah
+      
 
 - content_for :sidebar do
-  %h2 About Us
-  %p
-    This website is being developed as the online resource for individuals
-    and groups involved or interested in Indonesian regional development.
+  - if locale == :en
+    %h2 About Us
+    %p
+      This website is being developed as the online resource for individuals
+      and groups involved or interested in Indonesian regional development.
+  - elsif locale == :id
+    %h2 Tentang Kami
+    %p
+      Situs ini sedang dikembangkan sebagai sarana online untuk menolong kelompok
+      atau perorangan yang bergerak dalam bidang pembangunan daerah di Indonesia.

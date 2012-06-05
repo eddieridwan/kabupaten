@@ -1,0 +1,13 @@
+# Localization file for kabupatens views 
+# See https://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
+
+en:
+  kabupaten_list: "List of Kabupaten/Kota"
+  province: "Province"
+  kabupaten_name: "Name"
+  area: "Area"
+  population: "Population"
+  capital: "Capital"
+  description: "Description"
+  category: "Category"
+  name: "Name"

@@ -7,31 +7,32 @@
           %li= msg
 
   .field.control-group
-    = f.label :name, :class => 'control-label'
+    = f.label (t :kabupaten_name), :class => 'control-label'
     .controls
       = f.text_field :name, :class => 'text_field'
   .field.control-group
-    = f.label :category_id, :class => 'control-label'
+    = f.label (t :category), :class => 'control-label'
     .controls
       = f.collection_select :category_id, Dt2Category.all(:order=>:name), :id, :name, {:value => "Kabupaten"}
   .field.control-group
-    = f.label :description, :class => 'control-label'
+    = f.label (t :description), :class => 'control-label'
     .controls
-      = f.text_area :description_en, :cols => 100, :rows => 5, :class => 'text_area'
+      = f.text_area ("description_#{locale}".to_sym), :cols => 100, :rows => 5, :class => 'text_area'
   .field.control-group
-    = f.label :area, :class => 'control-label'
+    = f.label (t :area), :class => 'control-label'
     .controls
       = f.number_field :area, :class => 'number_field'
+      = raw("(km<sup>2</sup>)")
   .field.control-group
-    = f.label :population, :class => 'control-label'
+    = f.label (t :population), :class => 'control-label'
     .controls
       = f.number_field :population, :class => 'number_field'
   .field.control-group
-    = f.label :capital, :class => 'control-label'
+    = f.label (t :capital), :class => 'control-label'
     .controls
       = f.text_field :capital, :class => 'text_field'
   .field.control-group
-    = f.label :province_id, :class => 'control-label'
+    = f.label (t :province), :class => 'control-label'
     .controls
       = f.collection_select :province_id, Province.all(:order=>:name), :id, :name, {:include_blank => true}
   .actions.form-actions

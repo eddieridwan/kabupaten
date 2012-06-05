@@ -1,0 +1,24 @@
+id:
+  home: "Beranda"
+  about_us: "Tentang kami"
+  contact_us: "Hubungi kami"
+  
+  will_paginate:
+    previous_label: "&#8592; Sebelumnya"
+    next_label: "Selanjutnya &#8594;"
+    page_gap: "&hellip;"
+    
+    page_entries_info:
+      single_page:
+        zero:  "No %{model} found"
+        one:   "Displaying 1 %{model}"
+        other: "Displaying all %{count} %{model}"
+      single_page_html:
+        zero:  "No %{model} found"
+        one:   "Displaying <b>1</b> %{model}"
+        other: "Displaying <b>all&nbsp;%{count}</b> %{model}"
+
+      multi_page: "Menampilkan %{model} %{from} - %{to} dari total %{count}"
+      multi_page_html: "Menampilkan %{model} <b>%{from}&nbsp;-&nbsp;%{to}</b> dari total <b>%{count}</b>"
+
+  

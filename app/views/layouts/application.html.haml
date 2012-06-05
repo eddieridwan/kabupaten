@@ -14,10 +14,14 @@
         #site-actions.navbar-inner
           %a.brand{ href: root_path } kabupaten.org
           %ul.nav.pull-right
-            %li{ class: "#{'active' if current_page?(root_path)}" }= link_to 'Home', root_path    
+            - if locale == :id
+              %li= link_to image_tag('en-flg.gif', title: 'English'), "#{locale_uri('')}"
+            - else
+              %li= link_to image_tag('id-flg.gif', title: 'Bhs Indonesia'), "#{locale_uri('id')}"
+            %li{ class: "#{'active' if current_page?(root_path)}" }= link_to "#{t :home}", root_path    
             %li{ class: "#{'active' if controller.controller_name == 'kabupatens'}" }= link_to 'Kabupaten', kabupatens_path    
-            %li{ class: "#{'active' if current_page?(corporate_path(page: "about"))}" }= link_to "About", corporate_path(page: "about")
-            %li{ class: "#{'active' if current_page?(corporate_path(page: "contact"))}"}= link_to "Contact us", corporate_path(page: "contact")
+            %li{ class: "#{'active' if current_page?(corporate_path(page: "about"))}" }= link_to "#{t(:about_us)}", corporate_path(page: "about")
+            %li{ class: "#{'active' if current_page?(corporate_path(page: "contact"))}"}= link_to "#{t :contact_us}", corporate_path(page: "contact")
 
       %header
         #messages

@@ -1,0 +1,13 @@
+en:
+  activerecord:
+    models:
+      kabupaten:
+        zero:  kabupaten/kota
+        one:   kabupaten/kota
+        few:   kabupaten/kota
+        other: kabupaten/kota
+      province:
+        zero:  provinces
+        one:   province
+        few:   provinces
+        other: provinces

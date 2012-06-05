@@ -4,22 +4,20 @@
 / %p#notice= notice
 
 %p
-  %b Description:
-  = @kabupaten.description_en
+  = @kabupaten.send("description_#{locale}")
 
 - content_for :sidebar do
-
   %p
-    %b Area:
+    %b= raw("#{t :area} (km<sup>2</sup>):")
     = @kabupaten.area
   %p
-    %b Population:
+    %b= "#{t :population}:"
     = @kabupaten.population
   %p
-    %b Capital:
+    %b= "#{t :capital}:"
     = @kabupaten.capital
   %p
-    %b Province:
+    %b= "#{t :province}:"
     = @kabupaten.province.name
 
 - content_for :bottom do

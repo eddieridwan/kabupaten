@@ -1,16 +1,18 @@
-- @page_title = "List of Kabupaten/Kota"
+- @page_title = t :kabupaten_list
 - @body_class = "kabupatens"
 
 - if @kabupatens.present?
 
-  %p= paginate_summary_info("kabupaten/kota", @kabupatens)
+  %p= page_entries_info @kabupatens
   
   %table.table.table-striped
     %tr
-      %th Province
-      %th Name
-      %th Area
-      %th Population
+      %th= t :province
+      %th= t :kabupaten_name
+      %th
+        = t :area
+        = raw("(km<sup>2</sup>)")
+      %th= t :population
       %th 
 
     - @kabupatens.each do |kabupaten|

@@ -1,19 +1,18 @@
-- @page_title = "Province #{@province.name}"
+- @page_title = "#{(t :province)} #{@province.name}"
 - @body_class = "provinces"
 
 / %p#notice= notice
 
 %p
-  %b Description:
-  = @province.description_en
+  = @province.send("description_#{locale}")
   
 - content_for :sidebar do
 
   %p
-    %b Area:
+    %b= "#{t :area}:"
     = @province.area
   %p
-    %b Population:
+    %b= "#{(t :population)}:"
     = @province.population
 
 - content_for :bottom do

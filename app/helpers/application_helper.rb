@@ -31,4 +31,12 @@ module ApplicationHelper
     end
   end
   
+  def locale_uri(locale)
+    uri = URI.parse(request.env['REQUEST_URI'])
+    domain = uri.host.split('.')[-2..-1].join('.')
+    # Replace the subdomain -- assume there is at most one used for the locale
+    uri.host = locale.present? ? locale + '.' + domain : domain
+    uri.to_s
+  end
+  
 end

@@ -1,12 +1,14 @@
-- @page_title = "Provinces"
+- @page_title = t('activerecord.models.province.zero').titleize
 - @body_class = "provinces"
 
 %table.table.table-striped
   %tr
-    %th Name
-    %th Description
-    %th Area
-    %th Population
+    %th= t :name
+    %th= t :description
+    %th
+      = t :area
+      = raw("(km<sup>2</sup>)")
+    %th= t :population
     %th
     %th
     %th

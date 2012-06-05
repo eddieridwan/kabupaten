@@ -1,32 +1,66 @@
-- @page_title = "About kabupaten.org"
+- @page_title = "#{t :about} kabupaten.org"
 
-%p
-  kabupaten.org is a not-for-profit volunteer organisation supporting development
-  in regional Indonesia.
-%p
-  This website is being developed as the online resource for individuals
-  and groups involved or interested in Indonesian regional development.
-%p
-  This website is intended to assist local people in developing their areas
-  as well as external/international individuals and groups interested in the development
-  of particular areas in Indonesia.
-%p
-  The content of this website will come from contributors. If you are interested
-  in being a contributor, just drop a line to 
-  / http://www.mailtoencoder.com/
-  :plain
-    <script type="text/javascript"><!--
-    var wqomxpg = ['e','s','"','"','f','@','p','t','a','t','"','n','p','a','l','i','=','i','i','n','c','t','f','b','u',':','o','a','k','h','b','l','.','m','o','>','<','"',' ','f','o','n','o','.','r','a','s','a','r','>','m','/','n','<','i','e','e','o','r','e','a','=','@','l','k',' ','g','a','a','g','u','a'];var ytihqwf = [43,40,42,48,18,20,25,27,22,61,8,51,59,10,12,11,41,50,46,63,36,13,52,57,58,15,14,56,55,3,23,47,30,9,31,49,68,34,35,6,19,29,65,64,66,26,39,70,4,71,44,69,17,0,16,62,5,53,32,28,60,7,54,37,21,2,67,38,1,33,24,45];var hmlywdo= new Array();for(var i=0;i<ytihqwf.length;i++){hmlywdo[ytihqwf[i]] = wqomxpg[i]; }for(var i=0;i<hmlywdo.length;i++){document.write(hmlywdo[i]);}
-    // --></script>
-    <noscript>please enable Javascript to see the email address</noscript>
-  %span .
+- if I18n.locale == :en
+  %p
+    kabupaten.org is a not-for-profit volunteer organisation supporting development
+    in regional Indonesia.
+  %p
+    This website is being developed as the online resource for individuals
+    and groups involved or interested in Indonesian regional development.
+  %p
+    This website is intended to assist local people in developing their areas
+    as well as external/international individuals and groups interested in the development
+    of particular areas in Indonesia.
+  %p
+    The content of this website will come from contributors. If you are interested
+    in being a contributor, just drop a line to 
+    %script(type="text/javascript")
+      mailto_info();
+    %noscript
+      Please enable Javascript to see the email address
+    %span .
 
-%p
-  This website is developed using Ruby on Rails. If you can help to develop this site, contact us at the email above.
+  %p
+    This website is developed using Ruby on Rails. If you can help to develop this site, contact us at
+    %script(type="text/javascript")
+      mailto_info();
+    %noscript
+      Please enable Javascript to see the email address
+    %span .
+  
+  %h2 What is a kabupaten
 
-%h2 What is a kabupaten
+  %p 
+    Kabupatens or regencies, are Indonesian administrative divisions one hierarchy level below the provincial government (
+    = link_to "see description in wikipedia", "http://en.wikipedia.org/wiki/List_of_regencies_and_cities_of_Indonesia"
+    ).
+    
+- elsif I18n.locale == :id
+  %p
+    kabupaten.org adalah organisasi relawan not-for-profit mendukung pembangunan 
+    daerah Indonesia.
+  %p
+    Situs ini sedang dikembangkan sebagai sarana online untuk menolong kelompok
+    atau perorangan yang bergerak dalam bidang pembangunan daerah di Indonesia.
+  %p
+    Situs ini diharapkan dapat membantu penduduk daerah membangun daerah mereka sendiri
+    maupun perorangan atau kelompok luar daerah / internasional yang ingin membangun daerah-daerah
+    di Indonesia.
+  %p
+    Materi situs ini akan dikembangkan oleh para kontributor. Apabila anda berminat
+    menjadi kontributor, silakan mengirim email ke
+    %script(type="text/javascript")
+      mailto_info();
+    %noscript
+      Aktifkan Javascript pada browser anda untuk menampilkan alamat email
+    %span .
 
-%p 
-  Kabupatens or regencies, are Indonesian administrative divisions one hierarchy level below the provincial government (
-  = link_to "see description in wikipedia", "http://en.wikipedia.org/wiki/List_of_regencies_and_cities_of_Indonesia"
-  ).
+  %p
+    Situs ini dibuat memakai sistem pemrograman Ruby on Rails. Apabila anda dapat menolong 
+    mengembangkan situs ini, harap hubungi kami pada
+    %script(type="text/javascript")
+      mailto_info();
+    %noscript
+      Aktifkan Javascript pada browser anda untuk menampilkan alamat email
+    %span .
+

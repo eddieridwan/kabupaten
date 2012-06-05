@@ -1,0 +1,13 @@
+# Localization file for kabupatens views 
+# See https://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
+
+id:
+  kabupaten_list: "Daftar Kabupaten/Kota"
+  province: "Propinsi"
+  kabupaten_name: "Kabupaten/Kota"
+  area: "Luas"
+  population: "Penduduk"
+  capital: "Ibu Kota"
+  description: "Keterangan"
+  category: "Kategori"
+  name: "Nama"
