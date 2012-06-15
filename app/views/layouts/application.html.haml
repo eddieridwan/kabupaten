@@ -15,7 +15,7 @@
           %a.brand{ href: root_path } kabupaten.org
           %ul.nav.pull-right
             - if locale == :id
-              %li= link_to image_tag('en-flg.gif', title: 'English'), "#{locale_uri('')}"
+              %li= link_to image_tag('en-flg.gif', title: 'English'), "#{locale_uri('www')}"
             - else
               %li= link_to image_tag('id-flg.gif', title: 'Bhs Indonesia'), "#{locale_uri('id')}"
             %li{ class: "#{'active' if current_page?(root_path)}" }= link_to "#{t :home}", root_path    
