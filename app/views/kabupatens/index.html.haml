@@ -22,7 +22,7 @@
         %td= link_to kabupaten.category_name, kabupaten
         %td.right= number_with_delimiter(kabupaten.area)
         %td.right= number_with_delimiter(kabupaten.population)
-        %td.right= number_with_delimiter((kabupaten.population / kabupaten.area.to_f).ceil) if kabupaten.area.present?
+        %td.right= number_with_delimiter(kabupaten.density)
         %td.btn.btn-mini= link_to 'Edit', edit_kabupaten_path(kabupaten)
         
   = will_paginate @questions

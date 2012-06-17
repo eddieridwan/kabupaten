@@ -9,4 +9,8 @@ class Kabupaten < ActiveRecord::Base
     category.name + ' ' + name
   end
   
+  def density
+    (population / area.to_f).ceil if area.present?
+  end
+  
 end

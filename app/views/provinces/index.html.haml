@@ -18,7 +18,7 @@
       %td= province.description_en
       %td.right= number_with_delimiter(province.area)
       %td.right= number_with_delimiter(province.population)
-      %td.right= number_with_delimiter((province.population / province.area.to_f).ceil) if province.area.present?
+      %td.right= number_with_delimiter(province.density)
       %td.btn.btn-mini= link_to 'Edit', edit_province_path(province)
 
 %br
