@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120518104052) do
+ActiveRecord::Schema.define(:version => 20120623051020) do
 
   create_table "dt2_categories", :force => true do |t|
     t.string   "name"
@@ -30,6 +30,7 @@ ActiveRecord::Schema.define(:version => 20120518104052) do
     t.integer  "category_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.text     "health_indicators"
   end
 
   create_table "provinces", :force => true do |t|

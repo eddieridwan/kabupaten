@@ -1,2 +1,2 @@
-rvm ruby-1.9.2-p290@kabupaten --create
-rvm wrapper ruby-1.9.2-p290
+rvm ruby-1.9.3-p194@kabupaten-rails3.2 --create
+rvm wrapper ruby-1.9.3-p194

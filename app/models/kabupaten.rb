@@ -1,4 +1,5 @@
 class Kabupaten < ActiveRecord::Base
+  store :health_indicators, accessors: [:female_life_expectancy, :male_life_expectancy]
   
   belongs_to :province
   belongs_to :category, :class_name => 'Dt2Category'
