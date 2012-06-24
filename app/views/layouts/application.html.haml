@@ -19,9 +19,15 @@
             - else
               %li= link_to image_tag('id-flg.gif', title: 'Bhs Indonesia'), "#{locale_uri('id')}"
             %li{ class: "#{'active' if current_page?(root_path)}" }= link_to "#{t :home}", root_path    
-            %li{ class: "#{'active' if controller.controller_name == 'kabupatens'}" }= link_to 'Kabupaten', kabupatens_path    
+            %li{ class: "#{'active' if controller.controller_name == 'kabupatens'}" }= link_to 'Kabupaten', kabupatens_path
+            - if can? :manage, User
+              %li{ class: "#{'active' if controller.controller_name == 'users'}" }= link_to 'Users', users_path              
             %li{ class: "#{'active' if current_page?(corporate_path(page: "about"))}" }= link_to "#{t(:about_us)}", corporate_path(page: "about")
             %li{ class: "#{'active' if current_page?(corporate_path(page: "contact"))}"}= link_to "#{t :contact_us}", corporate_path(page: "contact")
+            - if current_user
+              %li= link_to "#{t('devise.sessions.sign_out')}", destroy_user_session_path, :method => 'delete'
+            - else
+              %li= link_to "#{t('devise.sessions.sign_in')}", new_user_session_path
 
       %header
         #messages

@@ -1,6 +1,6 @@
 class ProvincesController < ApplicationController
 
-  before_filter :authenticate, :except => [:index, :show]
+  before_filter :authenticate_user!, :except => [:index, :show]
   
   # GET /provinces
   # GET /provinces.json
