@@ -22,6 +22,10 @@ group :assets do
 end
 
 gem 'jquery-rails'
+gem "devise",         ">= 2.1.0.rc"
+gem "cancan",         ">= 1.6.7"
+gem "rolify",         ">= 3.1.0"
+gem "bootstrap-sass", ">= 2.0.1"
 
 # Use unicorn as the web server
 # gem 'unicorn'

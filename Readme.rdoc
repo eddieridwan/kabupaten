@@ -15,5 +15,20 @@ Ensure you switch to ruby 1.9.2.
 == Application Technical Background
 
 We are currently using:
-* Rails 3.1
-* Ruby 1.9.2
+* Rails 3.2
+* Ruby 1.9.3
+
+The app uses subdomains to set the locale (no subdomain: English, 'id': Indonesian).
+To run the app locally, set the following in /etc/hosts:
+
+  127.0.0.1 id.kabupaten.local
+  127.0.0.1 kabupaten.local
+  127.0.0.1 www.kabupaten.local
+
+In the browser, set the address to one of those local host names.
+
+Use foreman to run the app locally, to mimic heroku:
+* set environment variables in the file .env
+* put the following line in the file Procfile
+    web: bundle exec rails server -p $PORT
+* foreman start (defaults to port 5000)

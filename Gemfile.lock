@@ -31,9 +31,12 @@ GEM
     addressable (2.2.8)
     ansi (1.4.2)
     arel (3.0.2)
+    bcrypt-ruby (3.0.1)
+    bootstrap-sass (2.0.3.1)
     bootstrap-will_paginate (0.0.7)
       will_paginate
     builder (3.0.0)
+    cancan (1.6.7)
     coffee-rails (3.2.2)
       coffee-script (>= 2.2.0)
       railties (~> 3.2.0)
@@ -41,6 +44,11 @@ GEM
       coffee-script-source
       execjs
     coffee-script-source (1.3.3)
+    devise (2.1.2)
+      bcrypt-ruby (~> 3.0)
+      orm_adapter (~> 0.1)
+      railties (~> 3.1)
+      warden (~> 1.2.1)
     erubis (2.7.0)
     excon (0.14.1)
     execjs (1.4.0)
@@ -75,6 +83,7 @@ GEM
     mime-types (1.19)
     multi_json (1.3.6)
     netrc (0.7.4)
+    orm_adapter (0.3.0)
     pg (0.13.2)
     polyglot (0.3.3)
     rack (1.4.1)
@@ -104,6 +113,7 @@ GEM
       json (~> 1.4)
     rest-client (1.6.7)
       mime-types (>= 1.16)
+    rolify (3.1.0)
     rubyzip (0.9.9)
     sass (3.1.19)
     sass-rails (3.2.3)
@@ -125,20 +135,26 @@ GEM
     uglifier (1.2.5)
       execjs (>= 0.3.0)
       multi_json (~> 1.3)
+    warden (1.2.1)
+      rack (>= 1.0)
     will_paginate (3.0.3)
 
 PLATFORMS
   ruby
 
 DEPENDENCIES
+  bootstrap-sass (>= 2.0.1)
   bootstrap-will_paginate
+  cancan (>= 1.6.7)
   coffee-rails (~> 3.2.1)
+  devise (>= 2.1.0.rc)
   haml
   haml-rails (= 0.3.4)
   heroku
   jquery-rails
   pg
   rails (= 3.2.6)
+  rolify (>= 3.1.0)
   sass-rails (= 3.2.3)
   turn
   uglifier (>= 1.0.3)

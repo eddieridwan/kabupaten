@@ -5,6 +5,10 @@ class ApplicationController < ActionController::Base
   
   helper :all # include all helpers, all the time
   protect_from_forgery
+  rescue_from CanCan::AccessDenied do |exception|
+    access_denied_error
+  end
+  
   
   def access_denied_error
     flash[:error] = "Please contact info@kabupaten.org if you would like to be a contributor."
