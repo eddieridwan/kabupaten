@@ -5,4 +5,5 @@
 
 = link_to 'Show', @kabupaten, :class => 'btn'
 = link_to 'Back', kabupatens_path, :class => 'btn'
-= link_to 'Destroy', @kabupaten, :class => 'btn btn-danger', :confirm => 'Are you sure?', :method => :delete
+- if can? :manage, Kabupaten
+  = link_to 'Destroy', @kabupaten, :class => 'btn btn-danger', :confirm => 'Are you sure?', :method => :delete

@@ -31,4 +31,5 @@
   %p There are no kabupatens to list
 %br
 
-= link_to 'Add New', new_kabupaten_path, :class => 'btn btn-primary'
+- if can? :manage, Kabupaten
+  = link_to 'Add New', new_kabupaten_path, :class => 'btn btn-primary'

@@ -23,4 +23,5 @@
 
 %br
 
-= link_to 'Add New', new_province_path, :class => 'btn btn-primary'
+- if can? :manage, Province
+  = link_to 'Add New', new_province_path, :class => 'btn btn-primary'

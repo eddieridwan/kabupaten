@@ -19,24 +19,7 @@ class ApplicationController < ActionController::Base
       redirect_to(:back)
     end
   end
-  
-  # basic http
-  # def authenticate
-  #   authenticate_or_request_with_http_basic do |username, password| 
-  #     valid_user = (username == ENV['BASIC_AUTH_NAME'] && password == ENV['BASIC_AUTH_PASSWORD'])
-  #     if !valid_user && session[:denied_user].present?
-  #       session[:denied_user] = nil
-  #       false
-  #     elsif !valid_user
-  #       session[:denied_user] = username
-  #       raise AuthenticationError
-  #     elsif valid_user
-  #       session[:denied_user] = nil
-  #       true
-  #     end
-  #   end
-  # end
-  
+    
   def set_locale
     I18n.locale = extract_locale_from_subdomain || I18n.default_locale
   end
