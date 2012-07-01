@@ -1,7 +1,10 @@
-%h1 Editing project
+- @page_title = "Editing project"
+- @body_class = "projects"
 
 = render 'form'
 
-= link_to 'Show', @project
-\|
-= link_to 'Back', projects_path
+= link_to 'Show', @project, :class => 'btn'
+= link_to 'Back', projects_path, :class => 'btn'
+- if can? :manage, Project
+  = link_to 'Destroy', @project, :class => 'btn btn-danger', :data => {:confirm => 'Are you sure?'}, :method => :delete
+

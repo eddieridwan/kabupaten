@@ -25,7 +25,7 @@
         %td.right= number_with_delimiter(kabupaten.density)
         %td.btn.btn-mini= link_to 'Edit', edit_kabupaten_path(kabupaten)
         
-  = will_paginate @questions
+  = will_paginate @kabupatens
   
 -else
   %p There are no kabupatens to list

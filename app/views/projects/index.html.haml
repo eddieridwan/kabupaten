@@ -1,25 +1,28 @@
-%h1 Listing projects
+- @page_title = t :project_list
+- @body_class = "projects"
 
-%table
-  %tr
-    %th= t('name').titleize
-    %th= t('description').titleize
-    %th= t('kabupaten').titleize
-    %th= t('sector').titleize
-    %th
-    %th
-    %th
+- if @projects.present?
 
-  - @projects.each do |project|
+  %table.table.table-striped
     %tr
-      %td= project.send("name_#{locale}")
-      %td= project.send("description_#{locale}")
-      %td= project.kabupatens.map(&:category_name).join(', ')
-      %td= project.sectors.map(&:name).join(', ')
-      %td= link_to 'Show', project
-      %td= link_to 'Edit', edit_project_path(project)
-      %td= link_to 'Destroy', project, :confirm => 'Are you sure?', :method => :delete
+      %th= t('name').titleize
+      %th= t('description').titleize
+      %th= t('kabupaten').titleize
+      %th= t('sector').titleize
+      %th
 
+    - @projects.each do |project|
+      %tr
+        %td= link_to project.send("name_#{locale}"), project_path(project)
+        %td= project.send("description_#{locale}")
+        %td= project.kabupatens.map(&:category_name).join(', ')
+        %td= project.sectors.map(&:name).join(', ')
+        %td.btn.btn-mini= link_to 'Edit', edit_project_path(project)
+
+  = will_paginate @projects
+
+-else
+  %p There are no projects to list
 %br
 
-= link_to 'New Project', new_project_path
+= link_to 'New Project', new_project_path, :class => 'btn btn-primary'
