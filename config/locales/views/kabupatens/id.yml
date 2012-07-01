@@ -4,6 +4,7 @@
 id:
   kabupaten_list: "Daftar Kabupaten/Kota"
   province: "Propinsi"
+  kabupaten: "kabupaten"
   kabupaten_name: "Kabupaten/Kota"
   area: "Luas"
   population: "Penduduk"
@@ -12,3 +13,4 @@ id:
   description: "Keterangan"
   category: "Kategori"
   name: "Nama"
+  sector: "Sektor"

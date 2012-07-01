@@ -1,0 +1,21 @@
+%h1 Listing sectors
+
+%table
+  %tr
+    %th= t('name').titleize
+    %th= t('description').titleize
+    %th
+    %th
+    %th
+
+  - @sectors.each do |sector|
+    %tr
+      %td= sector.send("name_#{locale}")
+      %td= sector.send("description_#{locale}")
+      %td= link_to 'Show', sector
+      %td= link_to 'Edit', edit_sector_path(sector)
+      %td= link_to 'Destroy', sector, :data => { :confirm => 'Are you sure?'}, :method => :delete
+
+%br
+
+= link_to 'New Sector', new_sector_path

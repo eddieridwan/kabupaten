@@ -1,4 +1,10 @@
 Kabupatenku::Application.routes.draw do
+  resources :projects
+
+  resources :contacts
+
+  resources :sectors
+
   devise_for :users
 
   resources :users, :only => [:show, :index]

@@ -11,6 +11,7 @@ gem 'bootstrap-will_paginate'
 gem 'haml'
 gem 'haml-rails',             '= 0.3.4'
 gem 'pg'
+gem 'seedbank'
 gem 'will_paginate',          '~> 3.0'
 
 # Gems used only for assets and not required

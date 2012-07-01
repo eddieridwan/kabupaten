@@ -1,0 +1,18 @@
+%p#notice= notice
+
+%p
+  %b== #{t('name').titleize}:
+  = @project.send("name_#{locale}")
+%p
+  %b== #{t('description').titleize}:
+  = @project.send("description_#{locale}")
+%p
+  %b== #{t('kabupaten').titleize}:
+  = @project.kabupatens.map(&:category_name).join(', ')
+%p
+  %b== #{t('sector').titleize}:
+  = @project.sectors.map(&:name).join(', ')
+
+= link_to 'Edit', edit_project_path(@project)
+\|
+= link_to 'Back', projects_path

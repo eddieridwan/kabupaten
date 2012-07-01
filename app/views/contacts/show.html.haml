@@ -1,0 +1,18 @@
+%p#notice= notice
+
+%p
+  %b Name:
+  = @contact.name
+%p
+  %b Email:
+  = @contact.email
+%p
+  %b Skype handle:
+  = @contact.skype_handle
+%p
+  %b Twitter handle:
+  = @contact.twitter_handle
+
+= link_to 'Edit', edit_contact_path(@contact)
+\|
+= link_to 'Back', contacts_path

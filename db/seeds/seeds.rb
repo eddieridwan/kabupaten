@@ -6,11 +6,6 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-# Reset all data
-Kabupaten.destroy_all
-Province.destroy_all
-Dt2Category.destroy_all
-
 kabupatens = [
   ["Aceh","Kabupaten","Aceh Barat","Meulaboh"],
   ["Aceh","Kabupaten","Aceh Barat Daya","Blangpidie"],
@@ -512,10 +507,9 @@ kabupatens = [
 ]
 
 kabupatens.each do |item|
-  Kabupaten.create(
+  Kabupaten.find_or_create_by_name(item[2],
     province: Province.find_or_create_by_name(item[0]),
     category: Dt2Category.find_or_create_by_name(item[1]),  
-    name:     item[2],
     capital:  item[3]
   )
 end

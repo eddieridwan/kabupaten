@@ -4,6 +4,7 @@
 en:
   kabupaten_list: "List of Kabupaten/Kota"
   province: "Province"
+  kabupaten: "kabupaten"
   kabupaten_name: "Name"
   area: "Area"
   population: "Population"
@@ -12,3 +13,4 @@ en:
   description: "Description"
   category: "Category"
   name: "Name"
+  sector: "Sector"

@@ -1,0 +1,25 @@
+%h1 Listing projects
+
+%table
+  %tr
+    %th= t('name').titleize
+    %th= t('description').titleize
+    %th= t('kabupaten').titleize
+    %th= t('sector').titleize
+    %th
+    %th
+    %th
+
+  - @projects.each do |project|
+    %tr
+      %td= project.send("name_#{locale}")
+      %td= project.send("description_#{locale}")
+      %td= project.kabupatens.map(&:category_name).join(', ')
+      %td= project.sectors.map(&:name).join(', ')
+      %td= link_to 'Show', project
+      %td= link_to 'Edit', edit_project_path(project)
+      %td= link_to 'Destroy', project, :confirm => 'Are you sure?', :method => :delete
+
+%br
+
+= link_to 'New Project', new_project_path

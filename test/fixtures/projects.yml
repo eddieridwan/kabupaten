@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  name: MyString
+  description: MyText
+  kabupaten_id: 1
+  sector_id: 1
+
+two:
+  name: MyString
+  description: MyText
+  kabupaten_id: 1
+  sector_id: 1

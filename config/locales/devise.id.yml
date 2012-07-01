@@ -18,6 +18,8 @@ id:
       timeout: 'Sesi anda telah kadaluarsa, silahkan sign in untuk melanjutkan.'
       inactive: 'Akun anda belum diaktifkan.'
     sessions:
+      sign_in: 'Sign in'
+      sign_out: 'Sign out'
       signed_in: 'Proses sign in berhasil.'
       signed_out: 'Proses sign out berhasil.'
     passwords:

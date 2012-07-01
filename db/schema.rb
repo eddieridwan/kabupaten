@@ -11,7 +11,16 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120625105755) do
+ActiveRecord::Schema.define(:version => 20120701060018) do
+
+  create_table "contacts", :force => true do |t|
+    t.string   "name"
+    t.string   "email"
+    t.string   "skype_handle"
+    t.string   "twitter_handle"
+    t.datetime "created_at",     :null => false
+    t.datetime "updated_at",     :null => false
+  end
 
   create_table "dt2_categories", :force => true do |t|
     t.string   "name"
@@ -31,6 +40,33 @@ ActiveRecord::Schema.define(:version => 20120625105755) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.text     "health_indicators"
+  end
+
+  create_table "project_contact_mappings", :id => false, :force => true do |t|
+    t.integer "project_id"
+    t.integer "contact_id"
+    t.string  "contact_type"
+  end
+
+  create_table "project_kabupaten_mappings", :id => false, :force => true do |t|
+    t.integer "project_id"
+    t.integer "kabupaten_id"
+    t.string  "location_type"
+  end
+
+  create_table "project_sector_mappings", :id => false, :force => true do |t|
+    t.integer "project_id"
+    t.integer "sector_id"
+    t.string  "sector_type"
+  end
+
+  create_table "projects", :force => true do |t|
+    t.string   "name_en"
+    t.text     "description_en"
+    t.string   "name_id"
+    t.text     "description_id"
+    t.datetime "created_at",     :null => false
+    t.datetime "updated_at",     :null => false
   end
 
   create_table "provinces", :force => true do |t|
@@ -53,6 +89,15 @@ ActiveRecord::Schema.define(:version => 20120625105755) do
 
   add_index "roles", ["name", "resource_type", "resource_id"], :name => "index_roles_on_name_and_resource_type_and_resource_id"
   add_index "roles", ["name"], :name => "index_roles_on_name"
+
+  create_table "sectors", :force => true do |t|
+    t.string   "name_en"
+    t.string   "description_en"
+    t.string   "name_id"
+    t.string   "description_id"
+    t.datetime "created_at",     :null => false
+    t.datetime "updated_at",     :null => false
+  end
 
   create_table "users", :force => true do |t|
     t.string   "email",                  :default => "", :null => false

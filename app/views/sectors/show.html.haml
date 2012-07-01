@@ -1,0 +1,12 @@
+%p#notice= notice
+
+%p
+  %b== #{t('name').titleize}:
+  = @sector.send("name_#{locale}")
+%p
+  %b== #{t('description').titleize}:
+  = @sector.send("description_#{locale}")
+
+= link_to 'Edit', edit_sector_path(@sector)
+\|
+= link_to 'Back', sectors_path
