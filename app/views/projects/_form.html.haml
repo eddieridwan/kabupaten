@@ -7,7 +7,7 @@
           %li= msg
 
   .field.control-group
-    = f.label t(:name), :class => 'control-label'
+    = f.label t(:title), :class => 'control-label'
     .controls
       = f.text_field "name_#{locale}".to_sym, :class => 'text_field'
   .field.control-group
@@ -22,5 +22,5 @@
     = f.label t(:sector).titleize, :class => 'control-label'
     .controls
     / = f.number_field :sector_id
-  .actions
+  .actions.form-actions
     = f.submit 'Save', :class => 'btn btn-primary'
