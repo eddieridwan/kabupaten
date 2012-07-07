@@ -45,6 +45,9 @@ class ProjectsController < ApplicationController
   def create
     @project = Project.new(params[:project])
 
+    # HABTM associations
+    @project.sectors = Sector.find_all_by_id(params[:sector_ids])
+
     respond_to do |format|
       if @project.save
         format.html { redirect_to @project, notice: 'Project was successfully created.' }
@@ -60,6 +63,10 @@ class ProjectsController < ApplicationController
   # PUT /projects/1.json
   def update
     @project = Project.find(params[:id])
+
+    # HABTM associations
+    # Overwrite existing sectors. If params[:sector_ids] is nil then remove all areas.
+    @project.sectors = Sector.find_all_by_id(params[:sector_ids])
 
     respond_to do |format|
       if @project.update_attributes(params[:project])

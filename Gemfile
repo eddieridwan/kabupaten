@@ -8,6 +8,7 @@ gem 'heroku'
 # gem 'rails',     :git => 'git://github.com/rails/rails.git'
 
 gem 'bootstrap-will_paginate'
+gem 'cocoon'
 gem 'haml'
 gem 'haml-rails',             '= 0.3.4'
 gem 'pg'

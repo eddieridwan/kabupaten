@@ -1,4 +1,7 @@
-%p#notice= notice
+- @page_title = @project.send("name_#{locale}")
+- @body_class = "projects"
+
+/ %p#notice= notice
 
 %p
   %b== #{t('title').titleize}:
@@ -11,7 +14,7 @@
   = @project.kabupatens.map(&:category_name).join(', ')
 %p
   %b== #{t('sector').titleize}:
-  = @project.sectors.map(&:name).join(', ')
+  = @project.sectors.map(&"name_#{locale}".to_sym).sort.join(', ')
 
 = link_to 'Edit', edit_project_path(@project), :class => 'btn'
 = link_to 'Back', projects_path, :class => 'btn'

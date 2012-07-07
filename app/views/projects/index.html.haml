@@ -5,7 +5,7 @@
 
   %table.table.table-striped
     %tr
-      %th= t('name').titleize
+      %th= t('title').titleize
       %th= t('description').titleize
       %th= t('kabupaten').titleize
       %th= t('sector').titleize
@@ -16,7 +16,7 @@
         %td= link_to project.send("name_#{locale}"), project_path(project)
         %td= project.send("description_#{locale}")
         %td= project.kabupatens.map(&:category_name).join(', ')
-        %td= project.sectors.map(&:name).join(', ')
+        %td= project.sectors.map(&"name_#{locale}".to_sym).sort.join(', ')
         %td.btn.btn-mini= link_to 'Edit', edit_project_path(project)
 
   = will_paginate @projects
