@@ -1,6 +1,6 @@
 class CreateProjectSectorMappings < ActiveRecord::Migration
   def up
-    create_table :project_sector_mappings, :id => false do |t|
+    create_table :project_sector_mappings do |t|
       t.integer :project_id
       t.integer :sector_id
       t.string  :sector_type

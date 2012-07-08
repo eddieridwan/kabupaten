@@ -3,8 +3,11 @@ class Project < ActiveRecord::Base
   
   belongs_to :user
   
-  has_and_belongs_to_many :kabupatens, :join_table => 'project_kabupaten_mappings'
-  has_and_belongs_to_many :contacts, :join_table => 'project_contact_mappings'
-  has_and_belongs_to_many :sectors, :join_table => 'project_sector_mappings'
+  has_many :project_kabupaten_mappings
+  has_many :kabupatens, :through => :project_kabupaten_mappings
+  has_many :project_contact_mappings
+  has_many :contacts, :through => :project_contact_mappings
+  has_many :project_sector_mappings
+  has_many :sectors, :through => :project_sector_mappings
   
 end

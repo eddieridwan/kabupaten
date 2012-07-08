@@ -42,19 +42,19 @@ ActiveRecord::Schema.define(:version => 20120701060018) do
     t.text     "health_indicators"
   end
 
-  create_table "project_contact_mappings", :id => false, :force => true do |t|
+  create_table "project_contact_mappings", :force => true do |t|
     t.integer "project_id"
     t.integer "contact_id"
     t.string  "contact_type"
   end
 
-  create_table "project_kabupaten_mappings", :id => false, :force => true do |t|
+  create_table "project_kabupaten_mappings", :force => true do |t|
     t.integer "project_id"
     t.integer "kabupaten_id"
     t.string  "location_type"
   end
 
-  create_table "project_sector_mappings", :id => false, :force => true do |t|
+  create_table "project_sector_mappings", :force => true do |t|
     t.integer "project_id"
     t.integer "sector_id"
     t.string  "sector_type"
