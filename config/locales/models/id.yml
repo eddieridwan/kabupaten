@@ -11,3 +11,8 @@ id:
         one:   propinsi
         few:   propinsi
         other: propinsi
+      project:
+        zero:  proyek
+        one:   proyek
+        few:   proyek
+        other: proyek
