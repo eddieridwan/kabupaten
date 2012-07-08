@@ -5,6 +5,19 @@ module ApplicationHelper
     content = instance_variable_get("@content_for_#{name}")
     ! content.nil?
   end
+  
+  def locale_attr_or_alt_haml(object, attr_name)
+    if object.send("#{attr_name}_#{locale}").present?
+      haml_tag :span, object.send("#{attr_name}_#{locale}")
+    else
+      haml_tag :span, object.send("#{attr_name}_#{alt_locale}"), {class: 'alt_locale'}
+      haml_tag :span, "(#{t :for_translation})", {style: 'color: DarkGreen; font-size: 8pt'}
+    end
+  end
+  
+  def alt_locale
+    I18n.locale == :id ? :en : :id
+  end
 
   def display_flash(*names)
     if !names.empty?
@@ -38,5 +51,5 @@ module ApplicationHelper
     uri.host = locale.present? ? locale + '.' + domain : domain
     uri.to_s
   end
-  
+    
 end

@@ -8,10 +8,10 @@
   = link_to @project.user.name, user_path(@project.user)
 %p
   %b== #{t('title').titleize}:
-  = @project.send("name_#{locale}")
+  - locale_attr_or_alt_haml(@project, "name")
 %p
   %b== #{t('description').titleize}:
-  = @project.send("description_#{locale}")
+  - locale_attr_or_alt_haml(@project, "description")
 %p
   %b== #{t('kabupaten').titleize}:
   = @project.kabupatens.map(&:category_name).join(', ')

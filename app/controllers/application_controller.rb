@@ -23,7 +23,7 @@ class ApplicationController < ActionController::Base
   def set_locale
     I18n.locale = extract_locale_from_subdomain || I18n.default_locale
   end
-  
+      
   # Get locale code from request subdomain (like http://it.application.local:3000)
   # You have to put something like:
   #   127.0.0.1 gr.application.local

@@ -1,4 +1,6 @@
 class Project < ActiveRecord::Base
+  include Locale
+  
   attr_accessible :description_en, :name_en, :description_id, :name_id
   
   belongs_to :user
