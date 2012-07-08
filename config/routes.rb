@@ -1,16 +1,13 @@
 Kabupatenku::Application.routes.draw do
-  resources :projects
-
-  resources :contacts
-
-  resources :sectors
 
   devise_for :users
 
   resources :users, :only => [:show, :index]
   resources :provinces
-
   resources :kabupatens
+  resources :projects
+  resources :contacts
+  resources :sectors
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

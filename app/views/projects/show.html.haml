@@ -3,6 +3,9 @@
 
 / %p#notice= notice
 
+%p.user
+  Created by
+  = link_to @project.user.name, user_path(@project.user)
 %p
   %b== #{t('title').titleize}:
   = @project.send("name_#{locale}")
@@ -16,5 +19,6 @@
   %b== #{t('sector').titleize}:
   = @project.sectors.map(&"name_#{locale}".to_sym).sort.join(', ')
 
-= link_to 'Edit', edit_project_path(@project), :class => 'btn'
+- if can? :update, @project
+  = link_to 'Edit', edit_project_path(@project), :class => 'btn'
 = link_to 'Back', projects_path, :class => 'btn'

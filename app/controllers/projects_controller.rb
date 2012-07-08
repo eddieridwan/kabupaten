@@ -44,6 +44,7 @@ class ProjectsController < ApplicationController
   # POST /projects.json
   def create
     @project = Project.new(params[:project])
+    @project.user = current_user
 
     # HABTM associations
     @project.sectors = Sector.find_all_by_id(params[:sector_ids])

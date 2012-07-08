@@ -3,6 +3,8 @@
 
 - if @projects.present?
 
+  %p= page_entries_info @projects
+
   %table.table.table-striped
     %tr
       %th= t('title').titleize
@@ -13,11 +15,14 @@
 
     - @projects.each do |project|
       %tr
-        %td= link_to project.send("name_#{locale}"), project_path(project)
+        %td= link_to project.send("name_#{locale}"), project
         %td= project.send("description_#{locale}")
         %td= project.kabupatens.map(&:category_name).join(', ')
         %td= project.sectors.map(&"name_#{locale}".to_sym).sort.join(', ')
-        %td.btn.btn-mini= link_to 'Edit', edit_project_path(project)
+        - if can? :update, project
+          %td.btn.btn-mini= link_to 'Edit', edit_project_path(project)
+        -else
+          &nbsp;
 
   = will_paginate @projects
 
