@@ -16,3 +16,13 @@ id:
         one:   proyek
         few:   proyek
         other: proyek
+
+    errors:
+      models:
+        user:
+          attributes:
+            password:
+              blank: tidak boleh kosong
+              confirmation: tidak sama dengan konfirmasi
+            current_password:
+              blank: tidak boleh kosong

@@ -1,5 +1,8 @@
-%h1 Users#show
-%p Find me in app/views/users/show.html.haml
+- @page_title = @user.name
+- @body_class = "projects"
 
 %p== User: #{@user.name}
 %p== Email: #{@user.email}
+
+- if can? :update, @user
+  = link_to 'Edit', edit_user_registration_path(@user), :class => 'btn'

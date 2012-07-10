@@ -4,9 +4,13 @@
 id:
   errors:
     messages:
+      expired: "has expired, please request a new one"
       not_found: "tidak ditemukan"
       already_confirmed: "sudah di konfirmasi"
       not_locked: "tidak dikunci"
+      not_saved:
+        one: "1 error prohibited this %{resource} from being saved:"
+        other: "%{count} errors prohibited this %{resource} from being saved:"
 
   devise:
     failure:
@@ -42,4 +46,7 @@ id:
         subject: 'Instruksi untuk melakukan Reset password'
       unlock_instructions:
         subject: 'Instruksi untuk membuka kembali akun anda'
+    shared:
+      forgot_password: 'Lupa password anda?'
+      no_confirmation_instructions: "Tidak menerima instruksi konfirmasi?"
 

@@ -14,6 +14,12 @@ module ApplicationHelper
       haml_tag :span, "(#{t :for_translation})", {style: 'color: DarkGreen; font-size: 8pt'}
     end
   end
+
+  def for_translation_haml(object, attr_name)
+    unless object.send("#{attr_name}_#{locale}").present?
+      haml_tag :span, "(#{t :for_translation})", {style: 'color: DarkGreen; font-size: 8pt'}
+    end
+  end
   
   def alt_locale
     I18n.locale == :id ? :en : :id

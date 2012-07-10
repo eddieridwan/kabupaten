@@ -2,6 +2,7 @@ id:
   home: "Beranda"
   about_us: "Tentang kami"
   contact_us: "Hubungi kami"
+  my_details: "Data diri saya"
   
   will_paginate:
     previous_label: "&#8592; Sebelumnya"

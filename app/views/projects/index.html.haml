@@ -15,7 +15,9 @@
 
     - @projects.each do |project|
       %tr
-        %td= link_to project.locale_attr_or_alt("name"), project
+        %td
+          = link_to project.locale_attr_or_alt("name"), project
+          - for_translation_haml(project, "name")
         %td
           - locale_attr_or_alt_haml(project, "description")
         %td= project.kabupatens.map(&:category_name).join(', ')

@@ -53,5 +53,8 @@ class Ability
     can :update, Project do |project|
       project.user == current_user
     end
+    can :update, User do |user|
+      user == current_user
+    end
   end
 end

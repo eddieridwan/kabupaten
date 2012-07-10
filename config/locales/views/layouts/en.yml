@@ -2,6 +2,7 @@ en:
   home: "Home"
   about_us: "About"
   contact_us: "Contact us"
+  my_details: "My details"
   
   will_paginate:
     previous_label: "&#8592; Previous"
