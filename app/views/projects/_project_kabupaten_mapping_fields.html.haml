@@ -1,0 +1,12 @@
+%tr.nested-fields
+  - if f.object.new_record?
+    %td{ :colspan => 2 }
+      = f.grouped_collection_select :kabupaten_id, Province.by_name, :kabupatens, :name, :id, :category_name, {:prompt => '--- Select Kabupaten ---'}
+  - else
+    %td
+      %strong= "#{f.object.kabupaten.province.name}: "
+    %td{ :title => f.object.kabupaten.name }
+      = truncate(f.object.kabupaten.category_name, :length => 75)
+  %td
+    = link_to_remove_association f do
+      - remove_button

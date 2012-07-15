@@ -9,7 +9,7 @@
     %tr
       %th= t('title').titleize
       %th= t('description').titleize
-      %th= t('kabupaten').titleize
+      %th= t('location').titleize
       %th= t('sector').titleize
       %th
 
@@ -33,4 +33,4 @@
   %p There are no projects to list
 %br
 
-= link_to 'New Project', new_project_path, :class => 'btn btn-primary'
+= link_to 'Submit a Project', new_project_path, :class => 'btn btn-primary'

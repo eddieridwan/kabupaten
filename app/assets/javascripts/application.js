@@ -3,6 +3,7 @@
 
 //= require jquery
 //= require jquery_ujs
+//= require cocoon
 
 // http://www.mailtoencoder.com/
 function mailto_info() {

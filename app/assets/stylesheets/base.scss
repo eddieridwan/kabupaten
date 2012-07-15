@@ -9,3 +9,14 @@ noscript {
   font-style: italic;
   color: Gray;
 }
+
+/* ----- tables ------------ */
+table.simple_table {
+  margin-bottom: 20px;
+  th, td {
+    text-align: left;
+    vertical-align: top;
+    padding-right: 10px;
+  }
+}
+  

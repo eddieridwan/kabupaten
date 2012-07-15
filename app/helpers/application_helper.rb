@@ -57,5 +57,13 @@ module ApplicationHelper
     uri.host = locale.present? ? locale + '.' + domain : domain
     uri.to_s
   end
+  
+  def add_button
+    haml_concat(image_tag('buttons/add.png', :alt => 'Add', :style => 'float:right; padding-right: 2px'))
+  end
+
+  def remove_button
+    haml_concat(image_tag('buttons/cross.png', :alt => 'Remove', :style => 'float: right; padding-right: 5px'))
+  end
     
 end

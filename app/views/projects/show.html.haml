@@ -6,19 +6,30 @@
 %p.user
   Created by
   = link_to @project.user.name, user_path(@project.user)
-%p
-  %b== #{t('title').titleize}:
-  - locale_attr_or_alt_haml(@project, "name")
-%p
-  %b== #{t('description').titleize}:
-  - locale_attr_or_alt_haml(@project, "description")
-%p
-  %b== #{t('kabupaten').titleize}:
-  = @project.kabupatens.map(&:category_name).join(', ')
-%p
-  %b== #{t('sector').titleize}:
-  = @project.sectors.map(&"name_#{locale}".to_sym).sort.join(', ')
 
+%table.simple_table
+  %tr
+    %th== #{t('title').titleize}:
+    %td
+      - locale_attr_or_alt_haml(@project, "name")
+  %tr
+    %th== #{t('description').titleize}:
+    %td
+      - locale_attr_or_alt_haml(@project, "description")
+  %tr
+    %th== #{t('location').titleize}:
+    %td
+      - @project.kabupatens.each do |kabupaten|
+        %strong= "#{kabupaten.province.name}: "
+        = link_to kabupaten.category_name, kabupaten
+        %br
+  %tr
+    %th== #{t('sector').titleize}:
+    %td
+      - @project.sectors.sort_by(&"name_#{locale}".to_sym).each do |sector|
+        = sector.send("name_#{locale}")
+        %br
+          
 - if can? :update, @project
   = link_to 'Edit', edit_project_path(@project), :class => 'btn'
 = link_to 'Back', projects_path, :class => 'btn'

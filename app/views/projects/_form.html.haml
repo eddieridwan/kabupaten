@@ -15,9 +15,21 @@
     .controls
       = f.text_area "description_#{locale}".to_sym, :cols => 100, :rows => 5, :class => 'text_area'
   .field.control-group
-    = f.label t(:kabupaten).titleize, :class => 'control-label'
+    = f.label t(:location).titleize, :class => 'control-label'
     .controls
-    / = f.number_field :kabupaten_id
+
+      #kabupatens
+        %table.simple_list
+          %thead
+            %tr
+              %th{ :colspan => 3 } &nbsp;
+              %th
+                = link_to_add_association f, :project_kabupaten_mappings, { 'data-association-insertion-node' => '#kabupatens .nested-fields:last', 'data-association-insertion-position' => 'after' } do
+                  - add_button
+          %tbody
+            = f.fields_for :project_kabupaten_mappings do |ff|
+              = render :partial => 'project_kabupaten_mapping_fields', :locals => { :f => ff }
+
   .field.control-group
     = f.label t(:sector).titleize, :class => 'control-label'
     .controls
