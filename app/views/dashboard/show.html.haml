@@ -36,6 +36,13 @@
 
 - content_for :sidebar do
   - if locale == :en
+    .hero-unit
+      %h2 Share your project
+      %p
+        Are you involved in a development project or activity in regional Indonesia? Sign in to share your triumphs and lessons learned.
+      %p
+        = link_to 'Submit a Project', new_project_path, :class => 'btn btn-primary btn-large'
+  
     %h2 About Us
     %p
       This website is being developed as the online resource for individuals

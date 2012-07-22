@@ -63,8 +63,10 @@
         %p &nbsp;
 
       %footer
-        .nav-bar.navbar-fixed-bottom
-          .container
+        .container
+          %p
+            %span.footer-link= link_to t(:contact_us), corporate_path(page: "contact")
+          %p
             %span.copyright= raw('&copy;') + " #{Time.now.year} kabupaten.org"
             %span.social_networks.pull-right
               %a(href="https://twitter.com/kabupaten_org" class="twitter-follow-button" data-show-count="false") Follow @kabupaten_org

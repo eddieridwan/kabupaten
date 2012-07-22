@@ -7,6 +7,8 @@ Your assistance in developing this project is most welcome.
 
 Ensure you switch to ruby 1.9.2.
 
+Install postgres: http://blog.willj.net/category/postgres/
+
   git clone git@github.com:eddieridwan/kabupaten.git
   cp config/database{.example,}.yml
   cp config/app_config{.example,}.yml

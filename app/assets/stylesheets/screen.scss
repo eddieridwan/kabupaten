@@ -1,15 +1,12 @@
 @import "base.scss";
 
 body, html {
-  height: 100%;
 }
 
 body {
   background: #8eb4cc image-url('body-bg.png') top center repeat-x;
   .bg {
     background: white;
-    height: 100%;
-    padding-bottom: 10px;
   }
   
   #messages {
@@ -47,8 +44,13 @@ body {
   }
 
   footer {
-    .copyright {
+    border-top: solid 1px lightGray;
+    padding-top: 10px;
+    background-color: whiteSmoke;
+    p {
       margin-left: 20px;
+    }
+    .copyright {
     }
     .social_networks {
       margin-right: 20px;
