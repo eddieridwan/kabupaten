@@ -3,8 +3,10 @@
 db/*.sqlite3
 log/
 log/*.log
+logfile
 tmp/
 .sass-cache/
 doc/README
 app_config.yml
+database.yml
 .env
