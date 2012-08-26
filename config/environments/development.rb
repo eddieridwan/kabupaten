@@ -23,18 +23,18 @@ Kabupatenku::Application.configure do
   config.action_mailer.perform_deliveries = true
   config.action_mailer.raise_delivery_errors = true
   config.action_mailer.default :charset => "utf-8"
-  
+
   # Use gmail account to send email
   config.action_mailer.smtp_settings = {
-    address: "smtp.gmail.com",
+    address: "mail.zoominti.com",
     port: 587,
     domain: "www.kabupaten.local",
-    authentication: "plain",
+    authentication: :login,
     enable_starttls_auto: true,
-    user_name: ENV["GMAIL_USERNAME"],
-    password: ENV["GMAIL_PASSWORD"]
+    user_name: ENV["ZOOMINTI_USERNAME"],
+    password: ENV["ZOOMINTI_PASSWORD"]
   }
-  
+
   # Print deprecation notices to the Rails logger
   config.active_support.deprecation = :log
 
@@ -46,7 +46,7 @@ Kabupatenku::Application.configure do
 
   # Expands the lines which load the assets
   config.assets.debug = true
-  
+
   # Raise exception on mass assignment protection for Active Record models
   config.active_record.mass_assignment_sanitizer = :strict
 
