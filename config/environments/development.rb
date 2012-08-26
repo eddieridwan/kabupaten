@@ -24,7 +24,7 @@ Kabupatenku::Application.configure do
   config.action_mailer.raise_delivery_errors = true
   config.action_mailer.default :charset => "utf-8"
 
-  # Use gmail account to send email
+  # Use zoominti account to send email
   config.action_mailer.smtp_settings = {
     address: "mail.zoominti.com",
     port: 587,
