@@ -1,7 +1,7 @@
 source 'http://rubygems.org'
 
 ruby '1.9.3'
-gem 'rails', '3.2.6'
+gem 'rails', '3.2.8'
 gem 'heroku'
 
 # Bundle edge Rails instead:
@@ -39,7 +39,7 @@ gem "bootstrap-sass", ">= 2.0.1"
 # gem 'ruby-debug19', :require => 'ruby-debug'
 
 group :development do
-end 
+end
 
 group :test do
   # Pretty printed test output
