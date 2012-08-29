@@ -1,54 +1,35 @@
-- if I18n.locale == :en
-  %p
-    Welcome to kabupaten.org.
-  %p
-    We want to help you achieve your goals in developing your target Indonesian region to reach its potential
-    in the modern Indonesian state and to become the best it could be for the benefit of all the people in that region.
-    Our objective is to facilitate communities of interest that will inspire, encourage and support you in achieving your goals to develop your target region.
-  %p
-    This website aims to do this by:
-    %ul
-      %li providing relevant practical information and information about other similar projects elsewhere in Indonesia and globally that will help you better implement your project
-      %li providing a forum whereby you can share information and ideas with other individuals and groups with similar interests
-      %li providing a conduit by which you can secure assistance for your project, or conversely, enable you to identify projects where you can make a valuable contribution
-  %p
-    Initially, we are thinking of the following features:
-    %ul
-      %li Facts, figures, indicators and analyses to help inform your project/activity
-      %li News feeds of relevant Indonesian regional development topics
-      %li Ability to contribute articles and blogs and to enter into discussions on an article
-      %li Ability to upload documents and reports and to enter into discussions on a report
-      %li Ability to set up forums for projects and activities, where interested parties can discuss and contribute to a project
-      %li Ability for individuals and groups to register their interest to be involved in projects/activities
-- elsif I18n.locale == :id
-  %p
-    Halaman ini adalah beranda kabupaten.org.
-  %p
-    Halaman ini akan memuat informasi pembangunan daerah yang sedang aktif dibahas.
-    Informasi yang akan disajikan antara lain:
-    %ul
-      %li Berita seputar pembangunan daerah
-      %li Artikel baru yang ditulis oleh para kontributor
-      %li Laporan yang baru di-upload oleh para kontributor
-      %li Daftar proyek yang aktif atau sedang dikembangkan
-      %li Daftar relawan domestik dan internasional yang ingin bergabung dengan proyek/kegiatan pembangunan daerah
-      
+%p
+  Welcome to kabupaten.org.
+%p
+  We want to help you achieve your goals in developing your target Indonesian region to reach its potential
+  in the modern Indonesian state and to become the best it could be for the benefit of all the people in that region.
+  Our objective is to facilitate communities of interest that will inspire, encourage and support you in achieving your goals to develop your target region.
+%p
+  This website aims to do this by:
+  %ul
+    %li providing relevant practical information and information about other similar projects elsewhere in Indonesia and globally that will help you better implement your project
+    %li providing a forum whereby you can share information and ideas with other individuals and groups with similar interests
+    %li providing a conduit by which you can secure assistance for your project, or conversely, enable you to identify projects where you can make a valuable contribution
+%p
+  Initially, we are thinking of the following features:
+  %ul
+    %li Facts, figures, indicators and analyses to help inform your project/activity
+    %li News feeds of relevant Indonesian regional development topics
+    %li Ability to contribute articles and blogs and to enter into discussions on an article
+    %li Ability to upload documents and reports and to enter into discussions on a report
+    %li Ability to set up forums for projects and activities, where interested parties can discuss and contribute to a project
+    %li Ability for individuals and groups to register their interest to be involved in projects/activities
+
 
 - content_for :sidebar do
-  - if locale == :en
-    .hero-unit
-      %h2 Share your project
-      %p
-        Are you involved in a development project or activity in regional Indonesia? Sign in to share your triumphs and lessons learned.
-      %p
-        = link_to 'Submit a Project', new_project_path, :class => 'btn btn-primary btn-large'
-  
-    %h2 About Us
+  .hero-unit
+    %h2 Share your project
     %p
-      This website is being developed as the online resource for individuals
-      and groups involved or interested in developing regions in Indonesia.
-  - elsif locale == :id
-    %h2 Tentang Kami
+      Are you involved in a development project or activity in regional Indonesia? Sign in to share your triumphs and lessons learned.
     %p
-      Situs ini sedang dikembangkan sebagai sarana online untuk menolong kelompok
-      atau perorangan yang bergerak dalam bidang pembangunan daerah di Indonesia.
+      = link_to 'Submit a Project', new_project_path, :class => 'btn btn-primary btn-large'
+
+  %h2 About Us
+  %p
+    This website is being developed as the online resource for individuals
+    and groups involved or interested in developing regions in Indonesia.
