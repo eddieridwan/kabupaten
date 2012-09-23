@@ -1,8 +1,8 @@
-- @page_title = t :contact_us
+- @page_title = t('kabupaten.contact_us')
 
 - if I18n.locale == :en
   %p
-    To contact us, just drop a line to 
+    To contact us, just drop a line to
     %script(type="text/javascript")
       mailto_info();
     %noscript
@@ -11,7 +11,7 @@
 
 - elsif I18n.locale == :id
   %p
-    Untuk menghubungi kami, silakan mengirim email ke 
+    Untuk menghubungi kami, silakan mengirim email ke
     %script(type="text/javascript")
       mailto_info();
     %noscript

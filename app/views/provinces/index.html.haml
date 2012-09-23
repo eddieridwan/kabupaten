@@ -3,13 +3,13 @@
 
 %table.table.table-striped
   %tr
-    %th= t :name
-    %th= t :description
+    %th= t('kabupaten.name')
+    %th= t('kabupaten.description')
     %th.right
-      = t :area
+      = t('kabupaten.area')
       = raw("(km<sup>2</sup>)")
-    %th.right= t :population
-    %th.right= t :density
+    %th.right= t('kabupaten.population')
+    %th.right= t('kabupaten.density')
     %th
 
   - @provinces.each do |province|

@@ -18,13 +18,13 @@
               %li= link_to image_tag('en-flg.gif', title: 'English'), locale_uri('www')
             - else
               %li= link_to image_tag('id-flg.gif', title: 'Bhs Indonesia'), locale_uri('id')
-            %li{ class: "#{'active' if current_page?(root_path)}" }= link_to t(:home), root_path    
+            %li{ class: "#{'active' if current_page?(root_path)}" }= link_to t('kabupaten.home'), root_path
             %li{ class: "#{'active' if controller.controller_name == 'kabupatens'}" }= link_to 'Kabupaten', kabupatens_path
-            %li{ class: "#{'active' if controller.controller_name == 'projects'}" }= link_to t(:projects).titleize, projects_path
+            %li{ class: "#{'active' if controller.controller_name == 'projects'}" }= link_to t('kabupaten.projects').titleize, projects_path
             - if can? :manage, User
-              %li{ class: "#{'active' if controller.controller_name == 'users'}" }= link_to 'Users', users_path              
-            %li{ class: "#{'active' if current_page?(corporate_path(page: "about"))}" }= link_to t(:about_us), corporate_path(page: "about")
-            %li{ class: "#{'active' if current_page?(corporate_path(page: "contact"))}"}= link_to t(:contact_us), corporate_path(page: "contact")
+              %li{ class: "#{'active' if controller.controller_name == 'users'}" }= link_to 'Users', users_path
+            %li{ class: "#{'active' if current_page?(corporate_path(page: "about"))}" }= link_to t('kabupaten.about_us'), corporate_path(page: "about")
+            %li{ class: "#{'active' if current_page?(corporate_path(page: "contact"))}"}= link_to t('kabupaten.contact_us'), corporate_path(page: "contact")
             - if current_user
               %li.dropdown
                 %a.dropdown-toggle(data-toggle="dropdown" href="#")
@@ -57,7 +57,7 @@
         .row
           .span12.bg
             .main
-              = yield        
+              = yield
 
       .bottom-space
         %p &nbsp;
@@ -65,11 +65,11 @@
       %footer
         .container
           %p
-            %span.footer-link= link_to t(:contact_us), corporate_path(page: "contact")
+            %span.footer-link= link_to t('kabupaten.contact_us'), corporate_path(page: "contact")
           %p
             %span.copyright= raw('&copy;') + " #{Time.now.year} kabupaten.org"
             %span.social_networks.pull-right
               %a(href="https://twitter.com/kabupaten_org" class="twitter-follow-button" data-show-count="false") Follow @kabupaten_org
               :plain
                 <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
-      
+

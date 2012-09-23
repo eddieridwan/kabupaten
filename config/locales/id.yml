@@ -1,0 +1,122 @@
+--- 
+id: 
+  activerecord: 
+    errors: 
+      models: 
+        user: 
+          attributes: 
+            current_password: 
+              blank: "tidak boleh kosong"
+            password: 
+              blank: "tidak boleh kosong"
+              confirmation: "tidak sama dengan konfirmasi"
+    models: 
+      kabupaten: 
+        few: kabupaten/kota
+        one: kabupaten/kota
+        other: kabupaten/kota
+        zero: kabupaten/kota
+      project: 
+        few: proyek
+        one: proyek
+        other: proyek
+        zero: proyek
+      province: 
+        few: propinsi
+        one: propinsi
+        other: propinsi
+        zero: propinsi
+  date: 
+    day_names: 
+      - Minggu
+      - Senin
+      - Selasa
+      - Rabu
+      - Kamis
+      - Jumat
+      - Sabtu
+  devise: 
+    confirmations: 
+      confirmed: "Akun anda telah berhasil dikonfirmasi. Anda telah sign in."
+      send_instructions: "Anda akan menerima e-mail berisi instruksi untuk melakukan konfirmasi akun dalam beberapa menit lagi."
+    failure: 
+      inactive: "Akun anda belum diaktifkan."
+      invalid: "email atau password yang anda masukkan salah."
+      invalid_token: "Kesalahan pada authentication token."
+      locked: "Akun anda terkunci."
+      timeout: "Sesi anda telah kadaluarsa, silahkan sign in untuk melanjutkan."
+      unauthenticated: "Anda harus mendaftar atau sign in sebelum melanjutkan ."
+      unconfirmed: "Anda harus melakukan konfirmasi sebalum melanjutkan."
+    mailer: 
+      confirmation_instructions: 
+        subject: "Instruksi untuk melakukan konfirmasi"
+      reset_password_instructions: 
+        subject: "Instruksi untuk melakukan Reset password"
+      unlock_instructions: 
+        subject: "Instruksi untuk membuka kembali akun anda"
+    passwords: 
+      send_instructions: "Anda akan menerima e-mail berisi instruksi untuk melakukan reset password beberapa menit lagi."
+      updated: "Password anda telah berhasil diubah. Anda telah sign in."
+    registrations: 
+      destroyed: "Selamat Tinggal,  Akun anda telah di hapus"
+      signed_up: "Proses pendaftaran berhasil. Apabila diaktifkan, konfirmasi telah dikirimkan ke e-mail anda."
+      updated: "Akun anda telah berhasil diperbaharui."
+    sessions: 
+      sign_in: "Sign in"
+      sign_out: "Sign out"
+      signed_in: "Proses sign in berhasil."
+      signed_out: "Proses sign out berhasil."
+    shared: 
+      forgot_password: "Lupa password anda?"
+      no_confirmation_instructions: "Tidak menerima instruksi konfirmasi?"
+    unlocks: 
+      send_instructions: "Anda akan menerima e-mail berisi instruksi untuk membuka kembali akun anda dalam beberapa menit lagi."
+      unlocked: "Akun anda telah berhasil dibuka kembali. Anda telah sign in."
+  errors: 
+    messages: 
+      already_confirmed: "sudah di konfirmasi"
+      blank: "tidak boleh kosong"
+      expired: "has expired, please request a new one"
+      not_found: "tidak ditemukan"
+      not_locked: "tidak dikunci"
+      not_saved: 
+        one: "1 error prohibited this %{resource} from being saved:"
+        other: "%{count} errors prohibited this %{resource} from being saved:"
+  kabupaten: 
+    about: Tentang
+    about_us: "Tentang kami"
+    area: Luas
+    capital: "Ibu Kota"
+    category: Kategori
+    contact_us: "Hubungi kami"
+    density: Kepadatan
+    description: Keterangan
+    for_translation: "untuk diterjemahkan"
+    home: Beranda
+    kabupaten: kabupaten
+    kabupaten_list: "Daftar Kabupaten/Kota"
+    kabupaten_name: Kabupaten/Kota
+    location: lokasi
+    my_details: "Data diri saya"
+    name: Nama
+    population: Penduduk
+    project_list: "Daftar Proyek"
+    projects: proyek
+    province: Propinsi
+    sector: Sektor
+    title: Judul
+  will_paginate: 
+    next_label: "Selanjutnya &#8594;"
+    page_entries_info: 
+      multi_page: "Menampilkan %{model} %{from} - %{to} dari total %{count}"
+      multi_page_html: "Menampilkan %{model} <b>%{from}&nbsp;-&nbsp;%{to}</b> dari total <b>%{count}</b>"
+      single_page: 
+        one: "Menampilkan 1 %{model}"
+        other: "Menampilkan semua %{model} (%{count})"
+        zero: "Tidak ada %{model}"
+      single_page_html: 
+        one: "Menampilkan <b>1</b> %{model}"
+        other: "Menampilkan <b>semua</b> %{model} (<b>%{count}</b>)"
+        zero: "Tidak ada %{model}"
+    page_gap: "&hellip;"
+    previous_label: "&#8592; Sebelumnya"

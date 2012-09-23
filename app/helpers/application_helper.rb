@@ -5,22 +5,22 @@ module ApplicationHelper
     content = instance_variable_get("@content_for_#{name}")
     ! content.nil?
   end
-  
+
   def locale_attr_or_alt_haml(object, attr_name)
     if object.send("#{attr_name}_#{locale}").present?
       haml_tag :span, object.send("#{attr_name}_#{locale}")
     else
       haml_tag :span, object.send("#{attr_name}_#{alt_locale}"), {class: 'alt_locale'}
-      haml_tag :span, "(#{t :for_translation})", {style: 'color: DarkGreen; font-size: 8pt'}
+      haml_tag :span, "(#{t('kabupaten.for_translation')})", {style: 'color: DarkGreen; font-size: 8pt'}
     end
   end
 
   def for_translation_haml(object, attr_name)
     unless object.send("#{attr_name}_#{locale}").present?
-      haml_tag :span, "(#{t :for_translation})", {style: 'color: DarkGreen; font-size: 8pt'}
+      haml_tag :span, "(#{t('kabupaten.for_translation')})", {style: 'color: DarkGreen; font-size: 8pt'}
     end
   end
-  
+
   def alt_locale
     I18n.locale == :id ? :en : :id
   end
@@ -37,7 +37,7 @@ module ApplicationHelper
     end
     nil
   end
-  
+
   def paginate_summary_info(model_str, entries)
     if entries.respond_to?(:total_pages)
       page_entries_info entries, :model => model_str.singularize
@@ -49,7 +49,7 @@ module ApplicationHelper
       end
     end
   end
-  
+
   def locale_uri(locale)
     uri = URI.parse(request.env['REQUEST_URI'])
     domain = uri.host.split('.')[-2..-1].join('.')
@@ -57,7 +57,7 @@ module ApplicationHelper
     uri.host = locale.present? ? locale + '.' + domain : domain
     uri.to_s
   end
-  
+
   def add_button
     haml_concat(image_tag('buttons/add.png', :alt => 'Add', :style => 'float:right; padding-right: 2px'))
   end
@@ -65,5 +65,5 @@ module ApplicationHelper
   def remove_button
     haml_concat(image_tag('buttons/cross.png', :alt => 'Remove', :style => 'float: right; padding-right: 5px'))
   end
-    
+
 end

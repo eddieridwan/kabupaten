@@ -1,4 +1,4 @@
-- @page_title = t :project_list
+- @page_title = t('kabupaten.project_list')
 - @body_class = "projects"
 
 - if @projects.present?
@@ -7,10 +7,10 @@
 
   %table.table.table-striped
     %tr
-      %th= t('title').titleize
-      %th= t('description').titleize
-      %th= t('location').titleize
-      %th= t('sector').titleize
+      %th= t('kabupaten.title').titleize
+      %th= t('kabupaten.description').titleize
+      %th= t('kabupaten.location').titleize
+      %th= t('kabupaten.sector').titleize
       %th
 
     - @projects.each do |project|

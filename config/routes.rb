@@ -1,5 +1,9 @@
 Kabupatenku::Application.routes.draw do
 
+  
+
+  mount Tolk::Engine => '/tolk', :as => 'tolk'
+
   devise_for :users
 
   resources :users, :only => [:show, :index]

@@ -1,4 +1,4 @@
-- @page_title = "#{t :about} kabupaten.org"
+- @page_title = "#{t('kabupaten.about')} kabupaten.org"
 
 - if I18n.locale == :en
   %p
@@ -13,7 +13,7 @@
     and groups involved or interested in developing regions in Indonesia.
   %p
     The content of this website will come from contributors. If you are interested
-    in being a contributor, just drop a line to 
+    in being a contributor, just drop a line to
     %script(type="text/javascript")
       mailto_info();
     %noscript
@@ -27,17 +27,17 @@
     %noscript
       Please enable Javascript to see the email address
     %span .
-  
+
   %h2 What is a kabupaten
 
-  %p 
+  %p
     Kabupatens or regencies, are Indonesian administrative divisions one hierarchy level below the provincial government (
     = link_to "see description in wikipedia", "http://en.wikipedia.org/wiki/List_of_regencies_and_cities_of_Indonesia"
     ).
-    
+
 - elsif I18n.locale == :id
   %p
-    kabupaten.org adalah organisasi relawan not-for-profit mendukung pembangunan 
+    kabupaten.org adalah organisasi relawan not-for-profit mendukung pembangunan
     daerah Indonesia.
   %p
     Situs ini sedang dikembangkan sebagai sarana online untuk menolong kelompok
@@ -56,7 +56,7 @@
     %span .
 
   %p
-    Situs ini dibuat memakai sistem pemrograman Ruby on Rails. Apabila anda dapat menolong 
+    Situs ini dibuat memakai sistem pemrograman Ruby on Rails. Apabila anda dapat menolong
     mengembangkan situs ini, harap hubungi kami pada
     %script(type="text/javascript")
       mailto_info();

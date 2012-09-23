@@ -13,6 +13,7 @@ gem 'haml'
 gem 'haml-rails',             '= 0.3.4'
 gem 'pg'
 gem 'seedbank'
+gem 'tolk'
 gem 'will_paginate',          '~> 3.0'
 
 # Gems used only for assets and not required

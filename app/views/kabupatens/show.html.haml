@@ -8,16 +8,16 @@
 
 - content_for :sidebar do
   %p
-    %b= raw("#{t :area} (km<sup>2</sup>):")
+    %b= raw("#{t('kabupaten.area')} (km<sup>2</sup>):")
     = number_with_delimiter(@kabupaten.area)
   %p
-    %b= "#{t :population}:"
+    %b= "#{t('kabupaten.population')}:"
     = number_with_delimiter(@kabupaten.population)
   %p
-    %b= "#{t :capital}:"
+    %b= "#{t('kabupaten.capital')}:"
     = @kabupaten.capital
   %p
-    %b= "#{t :province}:"
+    %b= "#{t('kabupaten.province')}:"
     = @kabupaten.province.name
 
 - content_for :bottom do
