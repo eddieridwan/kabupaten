@@ -16,12 +16,11 @@
     - @projects.each do |project|
       %tr
         %td
-          = link_to project.locale_attr_or_alt("name"), project
-          - for_translation_haml(project, "name")
+          = link_to project.name, project
         %td
-          - locale_attr_or_alt_haml(project, "description")
+          = project.description
         %td= project.kabupatens.map(&:category_name).join(', ')
-        %td= project.sectors.map(&"name_#{locale}".to_sym).sort.join(', ')
+        %td= project.sectors.map(&:name).sort.join(', ')
         - if can? :update, project
           %td.btn.btn-mini= link_to 'Edit', edit_project_path(project)
         -else

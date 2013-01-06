@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120923074616) do
+ActiveRecord::Schema.define(:version => 20130106130249) do
 
   create_table "contacts", :force => true do |t|
     t.string   "name"
@@ -28,10 +28,20 @@ ActiveRecord::Schema.define(:version => 20120923074616) do
     t.datetime "updated_at"
   end
 
+  create_table "kabupaten_translations", :force => true do |t|
+    t.integer  "kabupaten_id"
+    t.string   "locale"
+    t.string   "description"
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
+  end
+
+  add_index "kabupaten_translations", ["kabupaten_id"], :name => "index_kabupaten_translations_on_kabupaten_id"
+  add_index "kabupaten_translations", ["locale"], :name => "index_kabupaten_translations_on_locale"
+
   create_table "kabupatens", :force => true do |t|
     t.string   "name"
-    t.text     "description_en"
-    t.text     "description_id"
+    t.text     "description"
     t.string   "capital"
     t.integer  "area"
     t.integer  "population"
@@ -60,20 +70,40 @@ ActiveRecord::Schema.define(:version => 20120923074616) do
     t.string  "sector_type"
   end
 
-  create_table "projects", :force => true do |t|
-    t.string   "name_en"
-    t.text     "description_en"
-    t.string   "name_id"
-    t.text     "description_id"
-    t.integer  "user_id"
-    t.datetime "created_at",     :null => false
-    t.datetime "updated_at",     :null => false
+  create_table "project_translations", :force => true do |t|
+    t.integer  "project_id"
+    t.string   "locale"
+    t.string   "name"
+    t.string   "description"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
   end
+
+  add_index "project_translations", ["locale"], :name => "index_project_translations_on_locale"
+  add_index "project_translations", ["project_id"], :name => "index_project_translations_on_project_id"
+
+  create_table "projects", :force => true do |t|
+    t.string   "name"
+    t.text     "description"
+    t.integer  "user_id"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
+
+  create_table "province_translations", :force => true do |t|
+    t.integer  "province_id"
+    t.string   "locale"
+    t.text     "description"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
+
+  add_index "province_translations", ["locale"], :name => "index_province_translations_on_locale"
+  add_index "province_translations", ["province_id"], :name => "index_province_translations_on_province_id"
 
   create_table "provinces", :force => true do |t|
     t.string   "name"
-    t.text     "description_en"
-    t.text     "description_id"
+    t.text     "description"
     t.integer  "area"
     t.integer  "population"
     t.datetime "created_at"
@@ -91,13 +121,23 @@ ActiveRecord::Schema.define(:version => 20120923074616) do
   add_index "roles", ["name", "resource_type", "resource_id"], :name => "index_roles_on_name_and_resource_type_and_resource_id"
   add_index "roles", ["name"], :name => "index_roles_on_name"
 
+  create_table "sector_translations", :force => true do |t|
+    t.integer  "sector_id"
+    t.string   "locale"
+    t.string   "name"
+    t.string   "description"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
+
+  add_index "sector_translations", ["locale"], :name => "index_sector_translations_on_locale"
+  add_index "sector_translations", ["sector_id"], :name => "index_sector_translations_on_sector_id"
+
   create_table "sectors", :force => true do |t|
-    t.string   "name_en"
-    t.string   "description_en"
-    t.string   "name_id"
-    t.string   "description_id"
-    t.datetime "created_at",     :null => false
-    t.datetime "updated_at",     :null => false
+    t.string   "name"
+    t.string   "description"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
   end
 
   create_table "tolk_locales", :force => true do |t|

@@ -13,7 +13,7 @@
   .field.control_group
     = f.label t('kabupaten.description'), :class => 'control-label'
     .controls
-      = f.text_area "description_#{locale}".to_sym, :class => 'text_area'
+      = f.text_area :description, :class => 'text_area'
   .field.control_group
     = f.label t('kabupaten.area'), :class => 'control-label'
     .controls

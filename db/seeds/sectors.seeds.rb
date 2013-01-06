@@ -10,9 +10,8 @@ sectors = [
 ]
 
 sectors.each do |item|
-  Sector.find_or_create_by_name_en(item[0],
-    description_en: item[1],
-    name_id:        item[2],
-    description_id: item[3]
-  )
+  I18n.locale = :en
+  sector = Sector.find_or_create_by_name(item[0], description: item[1])
+  I18n.locale = :id
+  sector.update_attributes(name: item[2], description: item[3])
 end

@@ -9,6 +9,7 @@ gem 'heroku'
 
 gem 'bootstrap-will_paginate'
 gem 'cocoon'
+gem 'globalize3'
 gem 'haml'
 gem 'haml-rails',             '= 0.3.4'
 gem 'pg'

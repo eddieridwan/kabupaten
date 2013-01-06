@@ -1,12 +1,16 @@
+require 'will_paginate/array'
+
 class ProjectsController < ApplicationController
 
   before_filter :authenticate_user!, :except => [:index, :show]
   load_and_authorize_resource
+  before_filter :globalize_fallbacks
 
   # GET /projects
   # GET /projects.json
   def index
-    @projects = Project.order("projects.name_#{locale} asc").paginate(page: params[:page], per_page: 15)
+    # Sort by name for the current locale, so need to use sort_by because cannot use :order.
+    @projects = Project.all.sort_by{|p| p.name.downcase}.paginate(page: params[:page], per_page: 15)
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @projects }

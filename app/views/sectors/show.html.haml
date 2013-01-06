@@ -2,10 +2,10 @@
 
 %p
   %b== #{t('kabupaten.name').titleize}:
-  = @sector.send("name_#{locale}")
+  = @sector.name
 %p
   %b== #{t('kabupaten.description').titleize}:
-  = @sector.send("description_#{locale}")
+  = @sector.description
 
 = link_to 'Edit', edit_sector_path(@sector)
 \|

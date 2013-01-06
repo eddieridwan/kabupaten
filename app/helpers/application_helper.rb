@@ -7,16 +7,16 @@ module ApplicationHelper
   end
 
   def locale_attr_or_alt_haml(object, attr_name)
-    if object.send("#{attr_name}_#{locale}").present?
-      haml_tag :span, object.send("#{attr_name}_#{locale}")
+    if object.send(attr_name).present?
+      haml_tag :span, object.send(attr_name)
     else
-      haml_tag :span, object.send("#{attr_name}_#{alt_locale}"), {class: 'alt_locale'}
+      haml_tag :span, object.alt_locale_attr(attr_name), {class: 'alt_locale'}
       haml_tag :span, "(#{t('kabupaten.for_translation')})", {style: 'color: DarkGreen; font-size: 8pt'}
     end
   end
 
   def for_translation_haml(object, attr_name)
-    unless object.send("#{attr_name}_#{locale}").present?
+    unless object.send(attr_name).present?
       haml_tag :span, "(#{t('kabupaten.for_translation')})", {style: 'color: DarkGreen; font-size: 8pt'}
     end
   end

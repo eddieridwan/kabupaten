@@ -1,4 +1,4 @@
-- @page_title = @project.send("name_#{locale}")
+- @page_title = @project.name
 - @body_class = "projects"
 
 / %p#notice= notice
@@ -11,11 +11,11 @@
   %tr
     %th== #{t('kabupaten.title').titleize}:
     %td
-      - locale_attr_or_alt_haml(@project, "name")
+      - @project.name
   %tr
     %th== #{t('kabupaten.description').titleize}:
     %td
-      - locale_attr_or_alt_haml(@project, "description")
+      - @project.description
   %tr
     %th== #{t('kabupaten.location').titleize}:
     %td
@@ -26,8 +26,8 @@
   %tr
     %th== #{t('kabupaten.sector').titleize}:
     %td
-      - @project.sectors.sort_by(&"name_#{locale}".to_sym).each do |sector|
-        = sector.send("name_#{locale}")
+      - @project.sectors.sort_by(&:name).each do |sector|
+        = sector.name
         %br
 
 - if can? :update, @project

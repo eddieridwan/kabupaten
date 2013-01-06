@@ -10,8 +10,8 @@
 
   - @sectors.each do |sector|
     %tr
-      %td= sector.send("name_#{locale}")
-      %td= sector.send("description_#{locale}")
+      %td= sector.name
+      %td= sector.description
       %td= link_to 'Show', sector
       %td= link_to 'Edit', edit_sector_path(sector)
       %td= link_to 'Destroy', sector, :data => { :confirm => 'Are you sure?'}, :method => :delete

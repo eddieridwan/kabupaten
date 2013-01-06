@@ -15,7 +15,7 @@
   - @provinces.each do |province|
     %tr
       %td= link_to province.name, province
-      %td= province.description_en
+      %td= province.description
       %td.right= number_with_delimiter(province.area)
       %td.right= number_with_delimiter(province.population)
       %td.right= number_with_delimiter(province.density)

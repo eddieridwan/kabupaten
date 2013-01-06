@@ -9,11 +9,11 @@
   .field.control-group
     = f.label t('kabupaten.title'), :class => 'control-label'
     .controls
-      = f.text_field "name_#{locale}".to_sym, :class => 'text_field'
+      = f.text_field :name, :class => 'text_field'
   .field.control-group
     = f.label t('kabupaten.description'), :class => 'control-label'
     .controls
-      = f.text_area "description_#{locale}".to_sym, :cols => 100, :rows => 5, :class => 'text_area'
+      = f.text_area :description, :cols => 100, :rows => 5, :class => 'text_area'
   .field.control-group
     = f.label t('kabupaten.location').titleize, :class => 'control-label'
     .controls
@@ -36,7 +36,7 @@
       - Sector.by_name.each do |sector|
         %label.checkbox
           = check_box_tag("sector_ids[]", sector.id, @project.sectors.include?(sector), :id => "sector_#{sector.id}")
-          = sector.send("name_#{locale}")
+          = sector.name
 
 
   .actions.form-actions

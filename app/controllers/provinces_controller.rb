@@ -2,7 +2,8 @@ class ProvincesController < ApplicationController
 
   before_filter :authenticate_user!, :except => [:index, :show]
   load_and_authorize_resource
-  
+  before_filter :globalize_fallbacks
+
   # GET /provinces
   # GET /provinces.json
   def index

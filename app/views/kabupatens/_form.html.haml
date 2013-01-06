@@ -17,7 +17,7 @@
   .field.control-group
     = f.label t('kabupaten.description'), :class => 'control-label'
     .controls
-      = f.text_area ("description_#{locale}".to_sym), :cols => 100, :rows => 5, :class => 'text_area'
+      = f.text_area (:description), :cols => 100, :rows => 5, :class => 'text_area'
   .field.control-group
     = f.label t('kabupaten.area'), :class => 'control-label'
     .controls
