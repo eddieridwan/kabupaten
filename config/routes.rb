@@ -1,6 +1,6 @@
 Kabupatenku::Application.routes.draw do
 
-  
+
 
   mount Tolk::Engine => '/tolk', :as => 'tolk'
 
@@ -62,15 +62,20 @@ Kabupatenku::Application.routes.draw do
 
   resource :dashboard, :controller => "dashboard", :only => [:show]
   resource :corporate, :controller => "corporate", :only => [:show]
-  
+  resource :translate, :controller => "translate", :only => [] do
+    member do
+      get 'translate'
+    end
+  end
+
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
   # root :to => "welcome#index"
-  
+
   authenticated :user do
     root :to => 'dashboard#show'
   end
-  
+
   root :to => "dashboard#show"
 
   # See how all your routes lay out with "rake routes"

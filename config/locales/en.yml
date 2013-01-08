@@ -22,6 +22,8 @@ en:
     title: "Title"
     for_translation: "for translation"
     location: "location"
+    translate: "Translate"
+    original_text: "Original text"
 
     home: "Home"
     about_us: "About"

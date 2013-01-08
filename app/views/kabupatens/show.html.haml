@@ -3,9 +3,10 @@
 
 / %p#notice= notice
 
-%p
+%p{id: 'kabupaten_description'}
   = @kabupaten.description
-
+  - if Translate.for_translation?(@kabupaten, 'description')
+    - translate_button('kabupaten_description')
 - content_for :sidebar do
   %p
     %b= raw("#{t('kabupaten.area')} (km<sup>2</sup>):")

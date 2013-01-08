@@ -99,12 +99,14 @@ id:
     location: lokasi
     my_details: "Data diri saya"
     name: Nama
+    original_text: "Isi asli"
     population: Penduduk
     project_list: "Daftar Proyek"
     projects: proyek
     province: Propinsi
     sector: Sektor
     title: Judul
+    translate: Terjemahkan
   will_paginate: 
     next_label: "Selanjutnya &#8594;"
     page_entries_info: 

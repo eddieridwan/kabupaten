@@ -47,3 +47,12 @@ Notes:
 * warnings in console when using webrick locally: WARN  Could not determine content-length of response body.
   Workaround (but seems to skip displaying some logs) at the bottom of the thread at http://stackoverflow.com/questions/7082364/what-does-warn-could-not-determine-content-length-of-response-body-mean-and-h
   Apparently will be fixed in upcoming versions of Ruby
+
+== Translations
+
+Static translations are managed using the tolk gem. See https://github.com/tolk/tolk for usage details.
+Locally, the url for the tolk UI is:
+
+  kabupaten.local:<port>/tolk
+
+There is basic authentication. Username and password is in the .env file.

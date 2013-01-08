@@ -7,15 +7,12 @@
   Created by
   = link_to @project.user.name, user_path(@project.user)
 
-%table.simple_table
-  %tr
-    %th== #{t('kabupaten.title').titleize}:
-    %td
-      - @project.name
-  %tr
-    %th== #{t('kabupaten.description').titleize}:
-    %td
-      - @project.description
+#project_description
+  = @project.description
+- if Translate.for_translation?(@project, 'description')
+  - translate_button('project_description')
+
+%table.simple_table{style: 'margin-top: 20px'}
   %tr
     %th== #{t('kabupaten.location').titleize}:
     %td

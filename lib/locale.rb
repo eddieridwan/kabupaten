@@ -7,7 +7,7 @@ module Locale
 
     def alt_locale_attr(attr_name)
       current_locale = I18n.locale
-      I18n.locale = alt_locale
+      I18n.locale = Locale.alt_locale
       alt_attr = self.send(attr_name)
       I18n.locale = current_locale
       alt_attr
@@ -19,7 +19,7 @@ module Locale
 
   end
 
-  def alt_locale
+  def self.alt_locale
     I18n.locale == :id ? :en : :id
   end
 
