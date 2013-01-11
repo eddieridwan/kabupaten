@@ -4,7 +4,7 @@
 / %p#notice= notice
 
 %p{id: 'kabupaten_description'}
-  = @kabupaten.description
+  = raw(@kabupaten.description)
   - if Translate.for_translation?(@kabupaten, 'description')
     - translate_button('kabupaten_description')
 - content_for :sidebar do
