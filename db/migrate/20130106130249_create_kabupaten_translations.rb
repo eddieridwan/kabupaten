@@ -3,7 +3,7 @@ class CreateKabupatenTranslations < ActiveRecord::Migration
     rename_column :kabupatens, :description_en, :description
     remove_column :kabupatens, :description_id
     Kabupaten.create_translation_table!({
-      description: :string
+      description: :text
     }, {
       migrate_data: true
     })

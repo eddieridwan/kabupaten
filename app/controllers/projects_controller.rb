@@ -10,7 +10,7 @@ class ProjectsController < ApplicationController
   # GET /projects.json
   def index
     # Sort by name for the current locale, so need to use sort_by because cannot use :order.
-    @projects = Project.all.sort_by{|p| p.name.downcase}.paginate(page: params[:page], per_page: 15)
+    @projects = Project.all.sort_by{|p| p.name.to_s.downcase}.paginate(page: params[:page], per_page: 15)
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @projects }

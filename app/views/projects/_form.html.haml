@@ -1,3 +1,8 @@
+:plain
+  <script type="text/javascript">
+         bkLib.onDomLoaded(function() { nicEditors.allTextAreas() });
+  </script>
+
 = form_for @project, :html => { :class => 'form-horizontal' } do |f|
   -if @project.errors.any?
     #error_explanation
@@ -13,7 +18,7 @@
   .field.control-group
     = f.label t('kabupaten.description'), :class => 'control-label'
     .controls
-      = f.text_area :description, :cols => 100, :rows => 5, :class => 'text_area'
+      = f.text_area :description, :rows => 5, :class => 'text_area', :style => 'width: 500px'
   .field.control-group
     = f.label t('kabupaten.location').titleize, :class => 'control-label'
     .controls

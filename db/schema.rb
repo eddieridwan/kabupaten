@@ -31,7 +31,7 @@ ActiveRecord::Schema.define(:version => 20130106130249) do
   create_table "kabupaten_translations", :force => true do |t|
     t.integer  "kabupaten_id"
     t.string   "locale"
-    t.string   "description"
+    t.text     "description"
     t.datetime "created_at",   :null => false
     t.datetime "updated_at",   :null => false
   end
@@ -74,7 +74,7 @@ ActiveRecord::Schema.define(:version => 20130106130249) do
     t.integer  "project_id"
     t.string   "locale"
     t.string   "name"
-    t.string   "description"
+    t.text     "description"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
   end

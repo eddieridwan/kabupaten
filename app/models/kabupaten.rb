@@ -9,12 +9,20 @@ class Kabupaten < ActiveRecord::Base
 
   validates_uniqueness_of :name
 
+  before_save :strip_empty_description
+
   def category_name
     category.name + ' ' + name
   end
 
   def density
     (population / area.to_f).ceil if area.present?
+  end
+
+  private
+
+  def strip_empty_description
+    self.description = nil if ActionView::Base.full_sanitizer.sanitize(description).blank?
   end
 
 end

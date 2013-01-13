@@ -64,7 +64,7 @@ Kabupatenku::Application.routes.draw do
   resource :corporate, :controller => "corporate", :only => [:show]
   resource :translate, :controller => "translate", :only => [] do
     member do
-      get 'translate'
+      post 'translate'
     end
   end
 

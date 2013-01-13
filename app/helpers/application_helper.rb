@@ -24,7 +24,7 @@ module ApplicationHelper
   # Translates the text of the element (pass the id) and then toggles between translation and original text
   # Requires translate.js
   def translate_button(element)
-    haml_tag :p, { source: element, class: 'translate btn'} do
+    haml_tag :p, { source: element, class: 'translate btn', style: 'margin: 10px 0 10px 0'} do
       haml_tag :span, {class: 'translate_text'} do
         haml_concat t('kabupaten.translate')
       end

@@ -6,7 +6,7 @@ class CreateProjectTranslations < ActiveRecord::Migration
     remove_column :projects, :description_id
     Project.create_translation_table!({
       name: :string,
-      description: :string
+      description: :text
     }, {
       migrate_data: true
     })
