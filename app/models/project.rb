@@ -17,6 +17,7 @@ class Project < ActiveRecord::Base
 
   before_save :strip_empty_html_translation_fields
 
+
   private
 
   def strip_empty_html_translation_fields

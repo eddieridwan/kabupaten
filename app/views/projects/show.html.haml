@@ -10,7 +10,11 @@
 #project_description
   = raw(@project.description)
 - if Translate.for_translation?(@project, 'description')
-  - translate_button('project_description')
+  .alert{style: 'margin-top: 10px'}
+    = t('kabupaten.translate_alert')
+    %br
+    - translate_button('project_description')
+
 
 %table.simple_table{style: 'margin-top: 20px'}
   %tr

@@ -18,7 +18,7 @@
         %td
           = link_to project.name, project
         %td
-          = project.description
+          = strip_tags(project.description).try(:truncate, 300)
         %td= project.kabupatens.map(&:category_name).join(', ')
         %td= project.sectors.map(&:name).sort.join(', ')
         - if can? :update, project

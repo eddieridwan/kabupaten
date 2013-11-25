@@ -5,6 +5,9 @@ module Translate
   end
 
   def self.translate(from, to, text)
+    stripped = ActionView::Base.full_sanitizer.sanitize(text)
+    return if ActionView::Base.full_sanitizer.sanitize(text).blank?
+
     google_url = "http://translate.google.com/?sl=#{from.to_s}&tl=#{to.to_s}&q="
     agent = Mechanize.new
 
@@ -16,7 +19,7 @@ module Translate
         if node.text?
           # @page = agent.get(google_url + node.text)
           # node.content = @page.search("#result_box").text
-          node.content = I18n.locale == "en" ? "translated" : 'terjemahan'
+          node.content = I18n.locale == :en ? "translated" : 'terjemahan'
         end
       end
     end
