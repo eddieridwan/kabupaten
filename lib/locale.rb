@@ -1,6 +1,11 @@
 module Locale
 
+LOCALE_NAMES = {:en => "English", :id => "Bahasa Indonesia"}
+
   module ClassMethods
+    def self.locale_name
+      LOCALE_NAMES[I18n.locale.to_sym]
+    end
   end
 
   module InstanceMethods
@@ -21,6 +26,10 @@ module Locale
 
   def self.alt_locale
     I18n.locale == :id ? :en : :id
+  end
+
+  def self.locale_name
+    LOCALE_NAMES[I18n.locale.to_sym]
   end
 
   def self.included(receiver)

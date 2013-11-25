@@ -107,6 +107,7 @@ id:
     sector: Sektor
     title: Judul
     translate: Terjemahkan
+    translate_alert: "Tidak ada versi Bahasa Indonesia. Klik untuk melihat terjemahan Google/ versi asli. Edit untuk membuat versi Bahasa Indonesia"
   will_paginate: 
     next_label: "Selanjutnya &#8594;"
     page_entries_info: 

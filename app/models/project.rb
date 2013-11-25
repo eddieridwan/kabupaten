@@ -15,4 +15,12 @@ class Project < ActiveRecord::Base
 
   accepts_nested_attributes_for :project_kabupaten_mappings, :reject_if => :all_blank, :allow_destroy => true
 
+  before_save :strip_empty_html_translation_fields
+
+  private
+
+  def strip_empty_html_translation_fields
+    self.description = nil if ActionView::Base.full_sanitizer.sanitize(description).blank?
+  end
+
 end

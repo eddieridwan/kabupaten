@@ -51,6 +51,11 @@ Notes:
 == Translations
 
 Static translations are managed using the tolk gem. See https://github.com/tolk/tolk for usage details.
+The primary locale is :en. Add new translations to en.yml.
+  rake tolk:sync     # sync tolk database with en.yml
+Then make edits using tolk. When finished, dump back to locale files:
+  rake tolk:dump_all
+
 Locally, the url for the tolk UI is:
 
   kabupaten.local:<port>/tolk

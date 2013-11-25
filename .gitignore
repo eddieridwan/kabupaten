@@ -10,3 +10,4 @@ doc/README
 app_config.yml
 database.yml
 .env
+config/locales/*.bu

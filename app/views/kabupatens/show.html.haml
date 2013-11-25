@@ -6,7 +6,10 @@
 #kabupaten_description
   = raw(@kabupaten.description)
 - if Translate.for_translation?(@kabupaten, 'description')
-  - translate_button('kabupaten_description')
+  .alert{style: 'margin-top: 10px'}
+    = t('kabupaten.translate_alert')
+    %br
+    - translate_button('kabupaten_description')
 
 - content_for :sidebar do
   %p

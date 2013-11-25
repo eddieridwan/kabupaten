@@ -22,7 +22,7 @@
   .field.control-group
     = f.label t('kabupaten.description'), :class => 'control-label'
     .controls
-      = f.text_area :description, :rows => 5, :class => 'text_area', :style => 'width: 500px'
+      = f.text_area :description, :value => raw(f.object.send(:default_translation, :description)), :rows => 5, :class => 'text_area', :style => 'width: 500px'
   .field.control-group
     = f.label t('kabupaten.area'), :class => 'control-label'
     .controls
