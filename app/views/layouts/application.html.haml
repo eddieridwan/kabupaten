@@ -6,6 +6,7 @@
     %title= @page_title || 'Kabupaten'
     = stylesheet_link_tag    "application"
     = javascript_include_tag "application", "jquery", "bootstrap", "translate", "nicEdit"
+    = yield :javascript_includes
     = csrf_meta_tag
     = yield :stylesheet_includes
 
@@ -22,7 +23,7 @@
             %li{ class: "#{'active' if current_page?(root_path)}" }= link_to t('kabupaten.home'), root_path
             %li.dropdown{ class: "#{'active' if controller.controller_name == 'kabupatens'}" }
               %a.dropdown-toggle(data-toggle="dropdown" href="#")
-                Kapubaten
+                Kabupaten
                 %b.caret
               %ul.dropdown-menu
                 = link_to 'All', kabupatens_path

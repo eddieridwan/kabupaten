@@ -18,4 +18,5 @@ $(document).ready(function() {
     $('.translate_text', this).toggle();
     $('.untranslate_text', this).toggle();
   });
+
 });

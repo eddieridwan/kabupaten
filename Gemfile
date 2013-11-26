@@ -50,6 +50,11 @@ group :test do
   gem 'turn', :require => false
 end
 
+group :development, :test do
+  gem 'pry'
+  gem 'pry-debugger'
+end
+
 group :production do
 end
 

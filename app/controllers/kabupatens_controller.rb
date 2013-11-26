@@ -21,8 +21,18 @@ class KabupatensController < ApplicationController
 
   # GET /kabupatens/1
   # GET /kabupatens/1.json
+  # GET /kabupatens/0?&kabupaten_name=Aceh+Barat
   def show
-    @kabupaten = Kabupaten.find(params[:id])
+    if params[:kabupaten_name]
+      @kabupaten = Kabupaten.where(name: params[:kabupaten_name]).first
+      unless @kabupaten
+        flash[:error] = "No Kabupaten/Kota with name #{params[:kabupaten_name]}"
+        redirect_to :back
+        return
+      end
+    else
+      @kabupaten = Kabupaten.find(params[:id])
+    end
 
     respond_to do |format|
       format.html # show.html.erb
