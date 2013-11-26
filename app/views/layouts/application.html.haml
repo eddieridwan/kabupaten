@@ -5,7 +5,10 @@
     %meta{ name: "google-translate-customization", content: "4d9c898eb7b9dc59-f3255ce5be3f524d-ge71e457f8ee0c1f1-11"}
     %title= @page_title || 'Kabupaten'
     = stylesheet_link_tag    "application"
-    = javascript_include_tag "application", "jquery", "bootstrap", "translate", "nicEdit"
+    = javascript_include_tag "application"
+    = javascript_include_tag "jquery.multiselect." + I18n.locale.to_s, "jquery.multiselect.filter." + I18n.locale.to_s
+
+    = yield :javascript_includes
     = csrf_meta_tag
     = yield :stylesheet_includes
 
@@ -20,7 +23,14 @@
             - else
               %li= link_to image_tag('id-flg.gif', title: 'Bhs Indonesia'), locale_uri('id')
             %li{ class: "#{'active' if current_page?(root_path)}" }= link_to t('kabupaten.home'), root_path
-            %li{ class: "#{'active' if controller.controller_name == 'kabupatens'}" }= link_to 'Kabupaten', kabupatens_path
+            %li.dropdown{ class: "#{'active' if controller.controller_name == 'kabupatens'}" }
+              %a.dropdown-toggle(data-toggle="dropdown" href="#")
+                Kabupaten
+                %b.caret
+              %ul.dropdown-menu
+                = link_to 'All', kabupatens_path
+                - Province.by_name.each do |province|
+                  = link_to province.name, kabupatens_path(province: province.id)
             %li{ class: "#{'active' if controller.controller_name == 'projects'}" }= link_to t('kabupaten.projects').titleize, projects_path
             - if can? :manage, User
               %li{ class: "#{'active' if controller.controller_name == 'users'}" }= link_to 'Users', users_path

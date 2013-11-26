@@ -28,6 +28,9 @@ group :assets do
 end
 
 gem 'jquery-rails'
+gem 'jquery-ui-rails'
+gem 'jquery-multiselect-rails', :git => 'git://github.com/arojoal/jquery-multiselect-rails.git'
+gem 'rails3-jquery-autocomplete'
 gem "devise",         ">= 2.1.0.rc"
 gem "cancan",         ">= 1.6.7"
 gem "rolify",         ">= 3.1.0"
@@ -48,6 +51,11 @@ end
 group :test do
   # Pretty printed test output
   gem 'turn', :require => false
+end
+
+group :development, :test do
+  gem 'pry'
+  gem 'pry-debugger'
 end
 
 group :production do

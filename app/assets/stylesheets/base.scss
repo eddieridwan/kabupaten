@@ -10,6 +10,22 @@ noscript {
   color: Gray;
 }
 
+ul.ui-menu {
+  list-style: none;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 13px;
+  width: 1px; /*-- min-width will be applied --*/
+}
+
+.ui-menu-item {
+  padding: 3px 15px;
+}
+
+.ui-helper-hidden-accessible {
+  display: none;
+}
+
+
 /* ------- customise twitter bootstrap components -----*/
 .hero-unit {
   padding: 10px 15px;
@@ -24,4 +40,3 @@ table.simple_table {
     padding-right: 10px;
   }
 }
-  

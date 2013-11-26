@@ -2,6 +2,9 @@
 # See https://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
 
 en:
+  general:
+    in: "in"
+
   kabupaten:
     about: "About"
 
@@ -24,6 +27,7 @@ en:
     location: "location"
     translate: "Translate"
     original_text: "Original text"
+    contains: "Contains"
 
     home: "Home"
     about_us: "About"
@@ -31,6 +35,9 @@ en:
     my_details: "My details"
 
     translate_alert: "There is no English text. Toggle Google translation/ original text. Edit to set English text "
+
+    buttons:
+      show_kabupaten: "Show Kabupaten/Kota"
 
   will_paginate:
     previous_label: "&#8592; Previous"

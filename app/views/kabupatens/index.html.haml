@@ -1,7 +1,19 @@
-- @page_title = t('kabupaten.kabupaten_list')
+- content_for :javascript_includes do
+  = javascript_include_tag 'kabupatens'
+
+- if @province
+  - @page_title = "#{t('kabupaten.kabupaten_list')} #{t('general.in')} #{@province.name}"
+- else
+  - @page_title = t('kabupaten.kabupaten_list')
 - @body_class = "kabupatens"
 
 - if @kabupatens.present?
+
+  = form_tag kabupaten_path(1), method: :get do
+    = hidden_field_tag :id_for_name
+    %input{:type => 'submit', :value => t('kabupaten.buttons.show_kabupaten'), class: 'enable_on_input btn', style: 'vertical-align: top', disabled: true}
+    = autocomplete_field_tag :name, '', autocomplete_kabupaten_name_kabupatens_path, class: 'enable_submit', id_element: "#id_for_name"
+
 
   %p= page_entries_info @kabupatens
 
@@ -14,7 +26,6 @@
         = raw("(km<sup>2</sup>)")
       %th.right= t('kabupaten.population')
       %th.right= t('kabupaten.density')
-      %th
 
     - @kabupatens.each do |kabupaten|
       %tr
@@ -23,7 +34,6 @@
         %td.right= number_with_delimiter(kabupaten.area)
         %td.right= number_with_delimiter(kabupaten.population)
         %td.right= number_with_delimiter(kabupaten.density)
-        %td.btn.btn-mini= link_to 'Edit', edit_kabupaten_path(kabupaten)
 
   = will_paginate @kabupatens
 

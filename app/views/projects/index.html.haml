@@ -1,5 +1,56 @@
-- @page_title = t('kabupaten.project_list')
+- content_for :javascript_includes do
+  = javascript_include_tag 'kabupatens'
+
+%style
+  :sass
+    #filter_options
+      table
+        td
+          padding: 10px
+      .ui-multiselect
+        margin-bottom: 10px
+        min-height: 28px
+    .ui-multiselect-checkboxes
+      label
+        margin-bottom: 0px
+        input
+          display: inline-block
+          margin-right: 5px
+          vertical-align: top
+        span
+          vertical-align: bottom
+
+- if @kabupaten
+  - @page_title = "#{t('kabupaten.project_list')} #{t('general.in')} #{@kabupaten.category_name}"
+- else
+  - @page_title = t('kabupaten.project_list')
+
 - @body_class = "projects"
+
+#filter
+  - if params[:filter]
+    %p= "Filtered for: "
+  = form_tag projects_path, method: :get do
+
+    #filter_options
+      %table
+        %thead
+          %tr
+            %th= t('kabupaten.sector').titleize
+            %th= t('kabupaten.contains')
+            %th= t('kabupaten.location').titleize
+            %th
+        %tbody
+          %tr
+            %td
+              = select_tag :sector_id, options_for_select(Sector.all(:order=>:name).map{|s| [s.name, s.id]}, params[:filter] ? params[:filter][:sector_id] : nil), :name => "filter[sector_id][]", :multiple => true, :class => 'multiselect'
+            %td
+              = text_field_tag 'filter[search]', "#{params[:filter][:search] if params[:filter]}"
+            %td
+              = hidden_field_tag 'filter[kabupaten_id]', "#{params[:filter][:kabupaten_id] if params[:filter]}"
+              = autocomplete_field_tag :kabupaten_name, '', autocomplete_kabupaten_name_kabupatens_path, id_element: "#filter_kabupaten_id", value: "#{@kabupaten.try(:name)}"
+            %td{style: 'vertical-align: top'}
+              %input{:type => 'submit', :value => 'Filter', class: 'btn'}
 
 - if @projects.present?
 
@@ -7,11 +58,10 @@
 
   %table.table.table-striped
     %tr
-      %th= t('kabupaten.title').titleize
+      %th{style: 'width:20%'}= t('kabupaten.title').titleize
       %th= t('kabupaten.description').titleize
-      %th= t('kabupaten.location').titleize
-      %th= t('kabupaten.sector').titleize
-      %th
+      %th{style: 'width:15%'}= t('kabupaten.location').titleize
+      %th{style: 'width:15%'}= t('kabupaten.sector').titleize
 
     - @projects.each do |project|
       %tr
@@ -19,12 +69,9 @@
           = link_to project.name, project
         %td
           = strip_tags(project.description).try(:truncate, 300)
-        %td= project.kabupatens.map(&:category_name).join(', ')
-        %td= project.sectors.map(&:name).sort.join(', ')
-        - if can? :update, project
-          %td.btn.btn-mini= link_to 'Edit', edit_project_path(project)
-        -else
-          &nbsp;
+        %td
+          = raw(project.kabupatens.map{|k| link_to k.category_name, kabupaten_path(k.id)}.join(', '))
+        %td= raw(project.sectors(order: :name).map{|s| link_to s.name, projects_path(filter: {:sector_id => [s.id]})}.join(', '))
 
   = will_paginate @projects
 

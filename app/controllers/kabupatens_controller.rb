@@ -1,14 +1,21 @@
 class KabupatensController < ApplicationController
 
-  before_filter :authenticate_user!, :except => [:index, :show]
+  before_filter :authenticate_user!, :except => [:index, :show, :autocomplete_kabupaten_name]
   before_filter :globalize_fallbacks
-  load_and_authorize_resource
+  load_and_authorize_resource :except => [:autocomplete_kabupaten_name]
+
+  autocomplete :kabupaten, :name, full: true
+
 
   # GET /kabupatens
   # GET /kabupatens.json
   def index
-    @kabupatens = Kabupaten.includes(:province).order('provinces.name asc, kabupatens.name asc').paginate(page: params[:page], per_page: 15)
-
+    if params[:province]
+      @province = Province.find(params[:province])
+      @kabupatens = Kabupaten.in_province(params[:province]).order('kabupatens.name asc').paginate(page: params[:page], per_page: 15)
+    else
+      @kabupatens = Kabupaten.includes(:province).order('provinces.name asc, kabupatens.name asc').paginate(page: params[:page], per_page: 15)
+    end
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @kabupatens }
@@ -17,8 +24,18 @@ class KabupatensController < ApplicationController
 
   # GET /kabupatens/1
   # GET /kabupatens/1.json
+  # GET /kabupatens/0?&kabupaten_name=Aceh+Barat
   def show
-    @kabupaten = Kabupaten.find(params[:id])
+    if params[:name]
+      @kabupaten = Kabupaten.where(id: params[:id_for_name]).first || Kabupaten.where(name: params[:name]).first
+      unless @kabupaten
+        flash[:error] = "No Kabupaten/Kota with name #{params[:name]}"
+        redirect_to :back
+        return
+      end
+    else
+      @kabupaten = Kabupaten.find(params[:id])
+    end
 
     respond_to do |format|
       format.html # show.html.erb
