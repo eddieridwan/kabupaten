@@ -7,8 +7,12 @@ class KabupatensController < ApplicationController
   # GET /kabupatens
   # GET /kabupatens.json
   def index
-    @kabupatens = Kabupaten.includes(:province).order('provinces.name asc, kabupatens.name asc').paginate(page: params[:page], per_page: 15)
-
+    if params[:province]
+      @province = Province.find(params[:province])
+      @kabupatens = Kabupaten.in_province(params[:province]).order('kabupatens.name asc').paginate(page: params[:page], per_page: 15)
+    else
+      @kabupatens = Kabupaten.includes(:province).order('provinces.name asc, kabupatens.name asc').paginate(page: params[:page], per_page: 15)
+    end
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @kabupatens }

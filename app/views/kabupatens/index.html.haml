@@ -1,4 +1,7 @@
-- @page_title = t('kabupaten.kabupaten_list')
+- if @province
+  - @page_title = "#{t('kabupaten.kabupaten_list')} #{t('general.in')} #{@province.name}"
+- else
+  - @page_title = t('kabupaten.kabupaten_list')
 - @body_class = "kabupatens"
 
 - if @kabupatens.present?

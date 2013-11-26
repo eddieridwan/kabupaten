@@ -5,7 +5,7 @@ module Translate
   end
 
   def self.translate(from, to, text)
-    stripped = ActionView::Base.full_sanitizer.sanitize(text)
+    # http://stackoverflow.com/questions/7414267/strip-html-from-string-ruby-on-rails
     return if ActionView::Base.full_sanitizer.sanitize(text).blank?
 
     google_url = "http://translate.google.com/?sl=#{from.to_s}&tl=#{to.to_s}&q="

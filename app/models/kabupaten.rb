@@ -8,6 +8,8 @@ class Kabupaten < ActiveRecord::Base
   has_many    :project_kabupaten_mappings
   has_many    :projects, :through => :project_kabupaten_mappings
 
+  scope :in_province, lambda { |province| where("province_id = ?", province) }
+
   validates_uniqueness_of :name
 
   before_save :strip_empty_html_translation_fields
@@ -24,6 +26,7 @@ class Kabupaten < ActiveRecord::Base
   private
 
   def strip_empty_html_translation_fields
+    # http://stackoverflow.com/questions/7414267/strip-html-from-string-ruby-on-rails
     self.description = nil if ActionView::Base.full_sanitizer.sanitize(description).strip.blank?
   end
 

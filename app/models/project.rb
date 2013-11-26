@@ -21,6 +21,7 @@ class Project < ActiveRecord::Base
   private
 
   def strip_empty_html_translation_fields
+    # http://stackoverflow.com/questions/7414267/strip-html-from-string-ruby-on-rails
     self.description = nil if ActionView::Base.full_sanitizer.sanitize(description).blank?
   end
 

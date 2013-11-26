@@ -4,7 +4,7 @@
 / %p#notice= notice
 
 #kabupaten_description
-  = raw(@kabupaten.description)
+  = raw(@kabupaten.description || "&nbsp;")
 - if Translate.for_translation?(@kabupaten, 'description')
   .alert{style: 'margin-top: 10px'}
     = t('kabupaten.translate_alert')
