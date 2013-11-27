@@ -88,6 +88,8 @@ id:
     about: Tentang
     about_us: "Tentang kami"
     area: Luas
+    buttons: 
+      show_kabupaten: "Tampilkan Kabupaten/Kota"
     capital: "Ibu Kota"
     category: Kategori
     contact_us: "Hubungi kami"

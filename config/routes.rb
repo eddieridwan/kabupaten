@@ -8,7 +8,9 @@ Kabupatenku::Application.routes.draw do
 
   resources :users, :only => [:show, :index]
   resources :provinces
-  resources :kabupatens
+  resources :kabupatens do
+    get :autocomplete_kabupaten_name, :on => :collection
+  end
   resources :projects
   resources :contacts
   resources :sectors

@@ -10,8 +10,9 @@
 - if @kabupatens.present?
 
   = form_tag kabupaten_path(1), method: :get do
-    %input{:type => 'text', :id => 'kabupaten_names', :name => 'kabupaten_name', class: 'enable_submit'}
-    %input{:type => 'submit', :value => 'Show Kabupaten/Kota', class: 'enable_on_input btn', style: 'vertical-align: top', disabled: true}
+    = hidden_field_tag :id_for_name
+    %input{:type => 'submit', :value => t('kabupaten.buttons.show_kabupaten'), class: 'enable_on_input btn', style: 'vertical-align: top', disabled: true}
+    = autocomplete_field_tag :name, '', autocomplete_kabupaten_name_kabupatens_path, class: 'enable_submit', id_element: "#id_for_name"
 
 
   %p= page_entries_info @kabupatens

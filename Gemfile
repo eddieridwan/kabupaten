@@ -28,6 +28,7 @@ group :assets do
 end
 
 gem 'jquery-rails'
+gem 'rails3-jquery-autocomplete'
 gem "devise",         ">= 2.1.0.rc"
 gem "cancan",         ">= 1.6.7"
 gem "rolify",         ">= 3.1.0"

@@ -1,8 +1,11 @@
 class KabupatensController < ApplicationController
 
-  before_filter :authenticate_user!, :except => [:index, :show]
+  before_filter :authenticate_user!, :except => [:index, :show, :autocomplete_kabupaten_name]
   before_filter :globalize_fallbacks
-  load_and_authorize_resource
+  load_and_authorize_resource :except => [:autocomplete_kabupaten_name]
+
+  autocomplete :kabupaten, :name, full: true
+
 
   # GET /kabupatens
   # GET /kabupatens.json
@@ -23,10 +26,10 @@ class KabupatensController < ApplicationController
   # GET /kabupatens/1.json
   # GET /kabupatens/0?&kabupaten_name=Aceh+Barat
   def show
-    if params[:kabupaten_name]
-      @kabupaten = Kabupaten.where(name: params[:kabupaten_name]).first
+    if params[:name]
+      @kabupaten = Kabupaten.where(id: params[:id_for_name]).first || Kabupaten.where(name: params[:name]).first
       unless @kabupaten
-        flash[:error] = "No Kabupaten/Kota with name #{params[:kabupaten_name]}"
+        flash[:error] = "No Kabupaten/Kota with name #{params[:name]}"
         redirect_to :back
         return
       end
