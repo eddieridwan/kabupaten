@@ -26,7 +26,6 @@
         = raw("(km<sup>2</sup>)")
       %th.right= t('kabupaten.population')
       %th.right= t('kabupaten.density')
-      %th
 
     - @kabupatens.each do |kabupaten|
       %tr
@@ -35,7 +34,6 @@
         %td.right= number_with_delimiter(kabupaten.area)
         %td.right= number_with_delimiter(kabupaten.population)
         %td.right= number_with_delimiter(kabupaten.density)
-        %td.btn.btn-mini= link_to 'Edit', edit_kabupaten_path(kabupaten)
 
   = will_paginate @kabupatens
 

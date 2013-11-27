@@ -17,11 +17,10 @@
 
   %table.table.table-striped
     %tr
-      %th= t('kabupaten.title').titleize
+      %th{style: 'width:20%'}= t('kabupaten.title').titleize
       %th= t('kabupaten.description').titleize
-      %th= t('kabupaten.location').titleize
-      %th= t('kabupaten.sector').titleize
-      %th
+      %th{style: 'width:15%'}= t('kabupaten.location').titleize
+      %th{style: 'width:15%'}= t('kabupaten.sector').titleize
 
     - @projects.each do |project|
       %tr
@@ -32,10 +31,6 @@
         %td
           = raw(project.kabupatens.map{|k| link_to k.category_name, kabupaten_path(k.id)}.join(', '))
         %td= project.sectors.map(&:name).sort.join(', ')
-        - if can? :update, project
-          %td.btn.btn-mini= link_to 'Edit', edit_project_path(project)
-        -else
-          &nbsp;
 
   = will_paginate @projects
 
