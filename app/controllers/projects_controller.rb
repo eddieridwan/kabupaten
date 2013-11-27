@@ -9,8 +9,14 @@ class ProjectsController < ApplicationController
   # GET /projects
   # GET /projects.json
   def index
+    if params[:kabupaten_id]
+      @kabupaten = Kabupaten.find(params[:kabupaten_id])
+      projects = Project.in_kabupaten(params[:kabupaten_id])
+    else
+      projects = Project.all
+    end
     # Sort by name for the current locale, so need to use sort_by because cannot use :order.
-    @projects = Project.all.sort_by{|p| p.name.to_s.downcase}.paginate(page: params[:page], per_page: 15)
+    @projects = projects.sort_by{|p| p.name.to_s.downcase}.paginate(page: params[:page], per_page: 15)
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @projects }

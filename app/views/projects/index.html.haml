@@ -1,4 +1,8 @@
-- @page_title = t('kabupaten.project_list')
+- if @kabupaten
+  - @page_title = "#{t('kabupaten.project_list')} #{t('general.in')} #{@kabupaten.category_name}"
+- else
+  - @page_title = t('kabupaten.project_list')
+
 - @body_class = "projects"
 
 - if @projects.present?
@@ -19,7 +23,8 @@
           = link_to project.name, project
         %td
           = strip_tags(project.description).try(:truncate, 300)
-        %td= project.kabupatens.map(&:category_name).join(', ')
+        %td
+          = raw(project.kabupatens.map{|k| link_to k.category_name, kabupaten_path(k.id)}.join(', '))
         %td= project.sectors.map(&:name).sort.join(', ')
         - if can? :update, project
           %td.btn.btn-mini= link_to 'Edit', edit_project_path(project)

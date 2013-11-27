@@ -13,10 +13,11 @@ class Project < ActiveRecord::Base
   has_many :project_sector_mappings
   has_many :sectors, :through => :project_sector_mappings
 
+  scope    :in_kabupaten, lambda { |kabupaten| includes(:kabupatens).where("kabupatens.id = ?", kabupaten) }
+
   accepts_nested_attributes_for :project_kabupaten_mappings, :reject_if => :all_blank, :allow_destroy => true
 
   before_save :strip_empty_html_translation_fields
-
 
   private
 

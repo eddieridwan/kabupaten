@@ -1,3 +1,9 @@
+%style
+  :sass
+    div
+      .actions
+        margin-bottom: 20px
+
 - @page_title = @kabupaten.category_name
 - @body_class = "kabupatens"
 
@@ -12,6 +18,8 @@
     - translate_button('kabupaten_description')
 
 - content_for :sidebar do
+  .actions
+    = link_to t('kabupaten.project_list'), projects_path(kabupaten_id: @kabupaten.id)
   %p
     %b= raw("#{t('kabupaten.area')} (km<sup>2</sup>):")
     = number_with_delimiter(@kabupaten.area)
