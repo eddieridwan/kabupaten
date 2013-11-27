@@ -7,6 +7,12 @@
 
 - if @projects.present?
 
+  - unless @kabupaten
+    = form_tag projects_path, method: :get do
+      = hidden_field_tag :kabupaten_id
+      %input{:type => 'submit', :value => t('kabupaten.buttons.in_kabupaten'), class: 'enable_on_input btn', style: 'vertical-align: top', disabled: true}
+      = autocomplete_field_tag :name, '', autocomplete_kabupaten_name_kabupatens_path, class: 'enable_submit', id_element: "#kabupaten_id"
+
   %p= page_entries_info @projects
 
   %table.table.table-striped

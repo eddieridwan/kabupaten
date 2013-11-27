@@ -89,6 +89,7 @@ id:
     about_us: "Tentang kami"
     area: Luas
     buttons: 
+      in_kabupaten: "Di Kabupaten/Kota"
       show_kabupaten: "Tampilkan Kabupaten/Kota"
     capital: "Ibu Kota"
     category: Kategori
