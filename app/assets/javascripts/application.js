@@ -5,7 +5,9 @@
 //= require jquery_ujs
 //= require jquery-ui
 //= require autocomplete-rails
-//= require_tree .
+//= require bootstrap
+//= require translate
+//= require nicEdit
 
 //= require cocoon
 
