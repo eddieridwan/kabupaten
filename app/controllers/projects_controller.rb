@@ -10,9 +10,9 @@ class ProjectsController < ApplicationController
   # GET /projects.json
   def index
     if params[:filter]
-      @filter = params[:filter]
-      @kabupaten = Kabupaten.find(@filter[:kabupaten_id]) if @filter[:kabupaten_id].present?
-      projects = Project.filter(@filter)
+      filter = params[:filter]
+      @kabupaten = Kabupaten.find(filter[:kabupaten_id]) if filter[:kabupaten_id].present?
+      projects = Project.filter(filter)
     else
       projects = Project.limit(100)
     end

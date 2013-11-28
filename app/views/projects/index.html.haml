@@ -16,8 +16,8 @@
 - @body_class = "projects"
 
 #filter
-  - if @filter
-    %p Filtered for:
+  - if params[:filter]
+    %p= "Filtered for: "
   = form_tag projects_path, method: :get do
 
     #filter_options
@@ -31,13 +31,14 @@
         %tbody
           %tr
             %td
+              = collection_select :filter, :sector_id, Sector.all(:order=>:name), :id, :name, {:selected => "#{params[:filter] ? params[:filter][:sector_id] : nil}", :include_blank => true}
             %td
-              = text_field_tag 'filter[search]', "#{@filter[:search] if @filter}", class: 'enable_submit'
+              = text_field_tag 'filter[search]', "#{params[:filter][:search] if params[:filter]}", class: 'enable_submit'
             %td
-              = hidden_field_tag 'filter[kabupaten_id]', "#{@filter[:kabupaten_id] if @filter}"
+              = hidden_field_tag 'filter[kabupaten_id]', "#{params[:filter][:kabupaten_id] if params[:filter]}"
               = autocomplete_field_tag :kabupaten_name, '', autocomplete_kabupaten_name_kabupatens_path, class: 'enable_submit', id_element: "#filter_kabupaten_id", value: "#{@kabupaten.try(:name)}"
             %td{style: 'vertical-align: top'}
-              %input{:type => 'submit', :value => 'Filter', class: 'enable_on_input btn', disabled: @filter.blank?}
+              %input{:type => 'submit', :value => 'Filter', class: 'enable_on_input btn', disabled: params[:filter].blank?}
 
 - if @projects.present?
 

@@ -16,6 +16,7 @@ class Project < ActiveRecord::Base
   has_many :sectors, :through => :project_sector_mappings
 
   scope :in_kabupaten, lambda { |kabupaten| includes(:kabupatens).where("kabupatens.id = ?", kabupaten) }
+  scope :in_sector, lambda { |sector| includes(:sectors).where("sectors.id = ?", sector) }
   scope :search, lambda { |term|
     term = '%' + term.to_s.downcase + '%'
     where( "LOWER(name) LIKE ? OR LOWER(description) LIKE ?", term, term).limit(100)
@@ -33,6 +34,9 @@ class Project < ActiveRecord::Base
       result += in_kabupaten(conditions[:kabupaten_id]) if conditions[:kabupaten_id].present?
       if conditions[:search].present?
         result = result.present? ? result & search(conditions[:search]) : search(conditions[:search])
+      end
+      if conditions[:sector_id].present?
+        result = result.present? ? result & in_sector(conditions[:sector_id]) : in_sector(conditions[:sector_id])
       end
       result.uniq
     end
