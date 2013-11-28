@@ -27,6 +27,7 @@ en:
     location: "location"
     translate: "Translate"
     original_text: "Original text"
+    contains: "Contains"
 
     home: "Home"
     about_us: "About"
@@ -37,7 +38,6 @@ en:
 
     buttons:
       show_kabupaten: "Show Kabupaten/Kota"
-      in_kabupaten: "In Kabupaten/Kota"
 
   will_paginate:
     previous_label: "&#8592; Previous"

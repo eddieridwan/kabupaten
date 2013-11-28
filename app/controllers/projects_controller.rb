@@ -9,11 +9,12 @@ class ProjectsController < ApplicationController
   # GET /projects
   # GET /projects.json
   def index
-    if params[:kabupaten_id]
-      @kabupaten = Kabupaten.find(params[:kabupaten_id])
-      projects = Project.in_kabupaten(params[:kabupaten_id])
+    if params[:filter]
+      @filter = params[:filter]
+      @kabupaten = Kabupaten.find(@filter[:kabupaten_id]) if @filter[:kabupaten_id].present?
+      projects = Project.filter(@filter)
     else
-      projects = Project.all
+      projects = Project.limit(100)
     end
     # Sort by name for the current locale, so need to use sort_by because cannot use :order.
     @projects = projects.sort_by{|p| p.name.to_s.downcase}.paginate(page: params[:page], per_page: 15)

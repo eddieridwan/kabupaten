@@ -4,10 +4,27 @@
 $(document).ready(function() {
 
   $('input.enable_submit').on('input', function() {
-    if ($(this).val() != "") {
+    if ($(this).val() != '') {
       $('input.enable_on_input').removeAttr("disabled");
     } else {
-      $('input.enable_on_input').attr("disabled", "disabled");
+      // check other enable submit fields for this form
+      var trigger_fields = $(this.form).find('.enable_submit');
+      // disable submit only if all fields are ''
+      var has_input = false;
+      trigger_fields.each(function(e) {
+        if ($(this).val() != '') {
+          has_input = true;
+        }
+      });
+      if (has_input === false) {
+        $('input.enable_on_input').attr("disabled", "disabled");
+      }
+    };
+  });
+
+  $('#kabupaten_name').on('input', function() {
+    if ($(this).val() === '') {
+      $('#filter_kabupaten_id').val('');
     };
   });
 

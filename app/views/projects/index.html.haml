@@ -1,3 +1,11 @@
+
+%style
+  :sass
+    #filter_options
+      table
+        td
+          padding: 10px
+
 - if @kabupaten
   - @page_title = "#{t('kabupaten.project_list')} #{t('general.in')} #{@kabupaten.category_name}"
 - else
@@ -5,13 +13,31 @@
 
 - @body_class = "projects"
 
-- if @projects.present?
+#filter
+  - if @filter
+    %p Filtered for:
+  = form_tag projects_path, method: :get do
 
-  - unless @kabupaten
-    = form_tag projects_path, method: :get do
-      = hidden_field_tag :kabupaten_id
-      %input{:type => 'submit', :value => t('kabupaten.buttons.in_kabupaten'), class: 'enable_on_input btn', style: 'vertical-align: top', disabled: true}
-      = autocomplete_field_tag :name, '', autocomplete_kabupaten_name_kabupatens_path, class: 'enable_submit', id_element: "#kabupaten_id"
+    #filter_options
+      %table
+        %thead
+          %tr
+            %th= t('kabupaten.sector').titleize
+            %th= t('kabupaten.contains')
+            %th= t('kabupaten.location').titleize
+            %th
+        %tbody
+          %tr
+            %td
+            %td
+              = text_field_tag 'filter[search]', "#{@filter[:search] if @filter}", class: 'enable_submit'
+            %td
+              = hidden_field_tag 'filter[kabupaten_id]', "#{@filter[:kabupaten_id] if @filter}"
+              = autocomplete_field_tag :kabupaten_name, '', autocomplete_kabupaten_name_kabupatens_path, class: 'enable_submit', id_element: "#filter_kabupaten_id", value: "#{@kabupaten.try(:name)}"
+            %td{style: 'vertical-align: top'}
+              %input{:type => 'submit', :value => 'Filter', class: 'enable_on_input btn', disabled: @filter.blank?}
+
+- if @projects.present?
 
   %p= page_entries_info @projects
 
