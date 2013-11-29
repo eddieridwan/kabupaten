@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130106130249) do
+ActiveRecord::Schema.define(:version => 20131129094158) do
 
   create_table "contacts", :force => true do |t|
     t.string   "name"
@@ -139,6 +139,27 @@ ActiveRecord::Schema.define(:version => 20130106130249) do
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
   end
+
+  create_table "snippet_translations", :force => true do |t|
+    t.integer  "snippet_id"
+    t.string   "locale"
+    t.text     "body"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "snippet_translations", ["locale"], :name => "index_snippet_translations_on_locale"
+  add_index "snippet_translations", ["snippet_id"], :name => "index_snippet_translations_on_snippet_id"
+
+  create_table "snippets", :force => true do |t|
+    t.string   "key"
+    t.text     "description"
+    t.text     "body"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
+
+  add_index "snippets", ["key"], :name => "index_snippets_on_key"
 
   create_table "tolk_locales", :force => true do |t|
     t.string   "name"

@@ -1,0 +1,10 @@
+- @page_title = "Editing snippet"
+- @body_class = "snippets"
+
+= render 'form'
+
+= link_to 'Show', @snippet, :class => 'btn'
+= link_to 'Back', snippets_path, :class => 'btn'
+- if can? :manage, Snippet
+  = link_to 'Destroy', @snippet, :class => 'btn btn-danger', :data => {:confirm => 'Are you sure?'}, :method => :delete
+

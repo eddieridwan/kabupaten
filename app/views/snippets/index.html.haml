@@ -1,0 +1,30 @@
+%h1 Listing snippets
+
+- if @snippets.present?
+
+  %p= page_entries_info @snippets
+
+  %table.table.table-striped
+    %tr
+      %th Key
+      %th Description
+      %th
+      %th
+      %th
+
+    - @snippets.each do |snippet|
+      %tr
+        %td= snippet.key
+        %td= snippet.description
+        %td= link_to 'Show', snippet
+        %td= link_to 'Edit', edit_snippet_path(snippet)
+        %td= link_to 'Destroy', snippet, :confirm => 'Are you sure?', :method => :delete
+
+  = will_paginate @snippets
+
+-else
+  %p There are no snippets to list
+
+%br
+
+= link_to 'New Snippet', new_snippet_path

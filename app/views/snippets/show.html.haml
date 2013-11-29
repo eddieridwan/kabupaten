@@ -1,0 +1,20 @@
+- @page_title = @snippet.key
+- @body_class = "snippets"
+
+/ %p#notice= notice
+
+%p
+  %strong Key
+%p= @snippet.key
+
+%p
+  %strong Description
+%p= raw(@snippet.description)
+
+%p
+  %strong Body
+%p= raw(@snippet.body)
+
+- if can? :update, Snippet
+  = link_to 'Edit', edit_snippet_path(@snippet), :class => 'btn'
+= link_to 'Back', snippets_path, :class => 'btn'

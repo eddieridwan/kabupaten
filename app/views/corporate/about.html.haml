@@ -1,6 +1,9 @@
 - @page_title = "#{t('kabupaten.about')} kabupaten.org"
 
-- if I18n.locale == :en
+- if snippet = Snippet.find_by_key('about').try(:body)
+  = raw(snippet)
+
+- elsif I18n.locale == :en
   %p
     kabupaten.org is a not-for-profit volunteer organisation supporting development
     in regional Indonesia.

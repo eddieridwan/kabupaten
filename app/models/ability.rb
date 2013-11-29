@@ -24,30 +24,31 @@ class Ability
     #   can :update, Article, :published => true
     #
     # See the wiki for details: https://github.com/ryanb/cancan/wiki/Defining-Abilities
-    
+
     current_user ||= User.new # guest user (not logged in)
     set_guest_permissions # default permissions
-    
+
     current_user.roles.each do |role|
       can [:show, :update], current_user  # only view and update their own and can't view the list of users
       send("set_#{role.name.gsub(' ','_')}_permissions", current_user)
     end
-    
+
   end
-  
+
   private
-  
+
   # Not logged in
   def set_guest_permissions
-    can :read, [Kabupaten, Province, Project]
+    can :read, [Kabupaten, Province, Project, Snippet]
     can :show, User
   end
-  
+
   def set_admin_permissions(current_user)
-    can :manage, [Kabupaten, Province, Project, User]
+    can :manage, [Kabupaten, Province, Project, Snippet, User]
   end
-  
+
   def set_contributor_permissions(current_user)
+    can :read, Snippet
     can :update, [Kabupaten, Province]
     can :create, Project
     can :update, Project do |project|
