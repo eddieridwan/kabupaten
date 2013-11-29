@@ -19,7 +19,7 @@
 
 - content_for :sidebar do
   .actions
-    = link_to t('kabupaten.project_list'), projects_path(kabupaten_id: @kabupaten.id)
+    = link_to t('kabupaten.project_list'), projects_path(filter: { :kabupaten_id => @kabupaten.id })
   %p
     %b= raw("#{t('kabupaten.area')} (km<sup>2</sup>):")
     = number_with_delimiter(@kabupaten.area)

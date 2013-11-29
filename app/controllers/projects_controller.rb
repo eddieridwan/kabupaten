@@ -2,8 +2,9 @@ require 'will_paginate/array'
 
 class ProjectsController < ApplicationController
 
-  before_filter :authenticate_user!, :except => [:index, :show]
   load_and_authorize_resource
+
+  before_filter :authenticate_user!, :except => [:index, :show]
   before_filter :globalize_fallbacks
 
   # GET /projects

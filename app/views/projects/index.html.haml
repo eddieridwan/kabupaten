@@ -71,7 +71,7 @@
           = strip_tags(project.description).try(:truncate, 300)
         %td
           = raw(project.kabupatens.map{|k| link_to k.category_name, kabupaten_path(k.id)}.join(', '))
-        %td= project.sectors.map(&:name).sort.join(', ')
+        %td= raw(project.sectors(order: :name).map{|s| link_to s.name, projects_path(filter: {:sector_id => [s.id]})}.join(', '))
 
   = will_paginate @projects
 
