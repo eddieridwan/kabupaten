@@ -6,6 +6,8 @@
     %title= @page_title || 'Kabupaten'
     = stylesheet_link_tag    "application"
     = javascript_include_tag "application"
+    = javascript_include_tag "jquery.multiselect." + I18n.locale.to_s, "jquery.multiselect.filter." + I18n.locale.to_s
+
     = yield :javascript_includes
     = csrf_meta_tag
     = yield :stylesheet_includes

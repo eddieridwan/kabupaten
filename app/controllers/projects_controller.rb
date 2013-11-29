@@ -9,7 +9,7 @@ class ProjectsController < ApplicationController
   # GET /projects
   # GET /projects.json
   def index
-    if params[:filter] && params[:filter].any? {|k,v| v != ''}
+    if params[:filter] && params[:filter].any? {|k,v| v.is_a?(Array) ? v.any?{|a| !a.blank?} : !v.blank?}
       filter = params[:filter]
       @kabupaten = Kabupaten.find(filter[:kabupaten_id]) if filter[:kabupaten_id].present?
       projects = Project.filter(filter)

@@ -7,6 +7,18 @@
       table
         td
           padding: 10px
+      .ui-multiselect
+        margin-bottom: 10px
+        min-height: 28px
+    .ui-multiselect-checkboxes
+      label
+        margin-bottom: 0px
+        input
+          display: inline-block
+          margin-right: 5px
+          vertical-align: top
+        span
+          vertical-align: bottom
 
 - if @kabupaten
   - @page_title = "#{t('kabupaten.project_list')} #{t('general.in')} #{@kabupaten.category_name}"
@@ -31,7 +43,7 @@
         %tbody
           %tr
             %td
-              = collection_select :filter, :sector_id, Sector.all(:order=>:name), :id, :name, {:selected => "#{params[:filter] ? params[:filter][:sector_id] : nil}", :include_blank => true}
+              = select_tag :sector_id, options_for_select(Sector.all(:order=>:name).map{|s| [s.name, s.id]}, params[:filter] ? params[:filter][:sector_id] : nil), :name => "filter[sector_id][]", :multiple => true, :class => 'multiselect'
             %td
               = text_field_tag 'filter[search]', "#{params[:filter][:search] if params[:filter]}"
             %td

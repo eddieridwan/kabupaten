@@ -3,6 +3,10 @@
 
 $(document).ready(function() {
 
+  $(".multiselect").multiselect({
+    selectedList: 4
+  });
+
   $('input.enable_submit').on('input', function() {
     if ($(this).val() != '') {
       $('input.enable_on_input').removeAttr("disabled");

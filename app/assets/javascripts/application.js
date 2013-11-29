@@ -8,6 +8,8 @@
 //= require bootstrap
 //= require translate
 //= require nicEdit
+//= require jquery.multiselect
+//= require jquery.multiselect.filter
 
 //= require cocoon
 
