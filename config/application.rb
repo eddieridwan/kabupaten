@@ -11,10 +11,10 @@ end
 
 module Kabupatenku
   class Application < Rails::Application
-    
+
     # load additional config options via config.yml
-    # CONFIG = YAML.load(File.read(Rails.root.to_s + '/config/app_config.yml'))
-    
+    CONFIG = YAML.load(File.read(Rails.root.to_s + '/config/app_config.yml'))
+
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.
@@ -49,20 +49,20 @@ module Kabupatenku
 
     # Heroku requires this to be false
     config.assets.initialize_on_precompile=false
-    
+
     # Version of your assets, change this if you want to expire all your assets
     config.assets.version = '1.0'
-    
+
     config.generators do |g|
       # g.test_framework :rspec, :views => false, :fixture => true
       g.template_engine :haml
     end
-    
+
     config.autoload_paths += %W(#{config.root}/lib)
     config.autoload_paths += Dir["#{config.root}/lib/**/"]
-    
+
   end
 end
 
-# APP_CONFIG = Kabupatenku::Application::CONFIG[Rails.env]
+APP_CONFIG = Kabupatenku::Application::CONFIG[Rails.env]
 

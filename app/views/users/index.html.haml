@@ -1,9 +1,32 @@
-%h1 Users#index
-%p Find me in app/views/users/index.html.haml
+- @page_title = 'Users'
 
-%ul.users
-  - @users.each do |user|
-    %li
-      = link_to user.name, user
-      signed up
-      = user.created_at.to_date
+- if @users.present?
+
+  %p= page_entries_info @users
+
+  %table.table.table-striped
+    %tr
+      %th Name
+      %th Email
+      %th Roles
+      %th
+      %th
+      %th
+
+    - @users.each do |user|
+      %tr
+        %td= user.name
+        %td= user.email
+        %td= user.role_names.join(', ')
+        %td= link_to 'Show', user
+        %td= link_to 'Edit', edit_user_path(user)
+        %td= link_to 'Destroy', user, :confirm => 'Are you sure?', :method => :delete
+
+  = will_paginate @users
+
+-else
+  %p There are no users to list
+
+%br
+
+/ = link_to 'New user', new_user_path

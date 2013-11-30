@@ -1,0 +1,13 @@
+- @page_title = @user.name
+- @body_class = "projects"
+
+%table.simple_table
+  %tr
+    %th Name:
+    %td= @user.name
+  %tr
+    %th Email:
+    %td= @user.email
+
+- if can? :update, @user
+  = link_to 'Edit', edit_user_registration_path(@user), :class => 'btn'

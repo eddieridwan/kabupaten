@@ -6,7 +6,9 @@ Kabupatenku::Application.routes.draw do
 
   devise_for :users
 
-  resources :users, :only => [:show, :index]
+  resources :registrations, :only => [:show]
+
+  resources :users, :only => [:index, :show, :edit, :update]
   resources :provinces
   resources :kabupatens do
     get :autocomplete_kabupaten_name, :on => :collection

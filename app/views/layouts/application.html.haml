@@ -41,7 +41,7 @@
                   %b.caret
                 %ul.dropdown-menu
                   %li= link_to t('devise.sessions.sign_out'), destroy_user_session_path, :method => 'delete'
-                  %li= link_to t('my_details'), user_path(current_user)
+                  %li= link_to t('my_details'), registration_path(current_user)
             - else
               %li= link_to t('devise.sessions.sign_in'), new_user_session_path
 

@@ -3,7 +3,7 @@ development: &main_settings
   basic_auth_name: username
   basic_auth_password: password
   host: localhost:3000   # defaults to localhost:3000 otherwise
-  
+
   # use the following settings with mailcatcher; only used in development
   delivery_method: smtp
   smtp_settings:

@@ -34,5 +34,6 @@
     = @kabupaten.province.name
 
 - content_for :bottom do
-  = link_to 'Edit', edit_kabupaten_path(@kabupaten), :class => 'btn'
+  - if can? :update, @project
+    = link_to 'Edit', edit_kabupaten_path(@kabupaten), :class => 'btn'
   = link_to 'Back', kabupatens_path, :class => 'btn'

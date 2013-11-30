@@ -40,16 +40,10 @@ class Ability
   # Not logged in
   def set_guest_permissions
     can :read, [Kabupaten, Province, Project, Snippet]
-    can :show, User
-  end
-
-  def set_admin_permissions(current_user)
-    can :manage, [Kabupaten, Province, Project, Snippet, User]
+    can :read, [User]
   end
 
   def set_contributor_permissions(current_user)
-    can :read, Snippet
-    can :update, [Kabupaten, Province]
     can :create, Project
     can :update, Project do |project|
       project.user == current_user
@@ -58,4 +52,18 @@ class Ability
       user == current_user
     end
   end
+
+  def set_moderator_permissions(current_user)
+  end
+
+  def set_editor_permissions(current_user)
+    set_contributor_permissions(current_user)
+    can :update, [Kabupaten, Province]
+    can :manage, Project
+  end
+
+  def set_admin_permissions(current_user)
+    can :manage, [Kabupaten, Province, Project, Snippet, User]
+  end
+
 end

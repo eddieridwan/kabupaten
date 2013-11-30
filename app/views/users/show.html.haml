@@ -1,8 +1,35 @@
 - @page_title = @user.name
-- @body_class = "projects"
+- @body_class = "users"
 
-%p== User: #{@user.name}
-%p== Email: #{@user.email}
+/ %p#notice= notice
+
+%table.simple_table
+  %tr
+    %th Name:
+    %td= @user.name
+  %tr
+    %th Email:
+    %td= @user.email
+  %tr
+    %th Current Sign In:
+    %td= @user.current_sign_in_at.try(:to_formatted_s, :short_dmy_with_time)
+  %tr
+    %th Current Sign In IP:
+    %td= @user.current_sign_in_ip
+  %tr
+    %th Last Sign In:
+    %td= @user.last_sign_in_at.try(:to_formatted_s, :short_dmy_with_time)
+  %tr
+    %th Last Sign In IP:
+    %td= @user.last_sign_in_ip
+  %tr
+    %th Roles:
+    %td
+      - @user.role_names.each do |role|
+        %span= role
+        %br
 
 - if can? :update, @user
-  = link_to 'Edit', edit_user_registration_path(@user), :class => 'btn'
+  = link_to 'Edit', edit_user_path(@user), :class => 'btn'
+= link_to 'Back', users_path, :class => 'btn'
+

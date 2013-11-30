@@ -18,22 +18,23 @@ Kabupatenku::Application.configure do
 
   # ActionMailer Config
   config.action_mailer.default_url_options = { :host => 'localhost:5000' }
-  config.action_mailer.delivery_method = :smtp
   # change to false to prevent email from being sent during development
-  config.action_mailer.perform_deliveries = true
+  config.action_mailer.perform_deliveries = false
   config.action_mailer.raise_delivery_errors = true
   config.action_mailer.default :charset => "utf-8"
 
+  config.action_mailer.delivery_method = APP_CONFIG['delivery_method'].try(:to_sym) || :sendmail
+  config.action_mailer.smtp_settings = APP_CONFIG['smtp_settings'].try(:symbolize_keys)
   # Use zoominti account to send email
-  config.action_mailer.smtp_settings = {
-    address: "mail.zoominti.com",
-    port: 587,
-    domain: "www.kabupaten.local",
-    authentication: :login,
-    enable_starttls_auto: true,
-    user_name: ENV["ZOOMINTI_USERNAME"],
-    password: ENV["ZOOMINTI_PASSWORD"]
-  }
+  # config.action_mailer.smtp_settings = {
+  #   address: "mail.zoominti.com",
+  #   port: 587,
+  #   domain: "www.kabupaten.local",
+  #   authentication: :login,
+  #   enable_starttls_auto: true,
+  #   user_name: ENV["ZOOMINTI_USERNAME"],
+  #   password: ENV["ZOOMINTI_PASSWORD"]
+  # }
 
   # Print deprecation notices to the Rails logger
   config.active_support.deprecation = :log
