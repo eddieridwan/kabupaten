@@ -4,7 +4,7 @@ class KabupatensController < ApplicationController
   before_filter :globalize_fallbacks
   load_and_authorize_resource :except => [:autocomplete_kabupaten_name]
 
-  autocomplete :kabupaten, :name, full: true
+  autocomplete :kabupaten, :name, full: true, limit: 15
 
 
   # GET /kabupatens
