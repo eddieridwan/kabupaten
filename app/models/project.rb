@@ -14,6 +14,7 @@ class Project < ActiveRecord::Base
   has_many :contacts, :through => :project_contact_mappings
   has_many :project_sector_mappings
   has_many :sectors, :through => :project_sector_mappings
+  has_many :links, :as => :linkable, :dependent => :destroy
 
   scope :in_kabupaten, lambda { |kabupaten| includes(:kabupatens).where("kabupatens.id = ?", kabupaten) }
   scope :in_sector, lambda { |sectors| includes(:sectors).where("sectors.id IN (?)", sectors) }

@@ -7,6 +7,7 @@ class Kabupaten < ActiveRecord::Base
   belongs_to  :category, :class_name => 'Dt2Category'
   has_many    :project_kabupaten_mappings
   has_many    :projects, :through => :project_kabupaten_mappings
+  has_many    :links, :as => :linkable, :dependent => :destroy
 
   scope :in_province, lambda { |province| where("province_id = ?", province) }
 

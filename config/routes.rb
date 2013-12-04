@@ -10,10 +10,15 @@ Kabupatenku::Application.routes.draw do
 
   resources :users, :only => [:index, :show, :edit, :update]
   resources :provinces
+
   resources :kabupatens do
     get :autocomplete_kabupaten_name, :on => :collection
+    resources :links,    :only => [:create, :update, :destroy]
   end
-  resources :projects
+
+  resources :projects do
+    resources :links,    :only => [:create, :update, :destroy]
+  end
   resources :contacts
   resources :sectors
 

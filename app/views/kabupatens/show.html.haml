@@ -11,11 +11,13 @@
 
 #kabupaten_description
   = raw(@kabupaten.description || "&nbsp;")
-- if Translate.for_translation?(@kabupaten, 'description')
-  .alert{style: 'margin-top: 10px'}
-    = t('kabupaten.translate_alert')
-    %br
-    - translate_button('kabupaten_description')
+  - if Translate.for_translation?(@kabupaten, 'description')
+    .alert{style: 'margin-top: 10px'}
+      = t('kabupaten.translate_alert')
+      %br
+      - translate_button('kabupaten_description')
+
+= render :partial => '/links', :locals => {:linkable => @kabupaten}
 
 - content_for :sidebar do
   .actions
@@ -34,6 +36,6 @@
     = @kabupaten.province.name
 
 - content_for :bottom do
-  - if can? :update, @project
+  - if can? :update, @kabupaten
     = link_to 'Edit', edit_kabupaten_path(@kabupaten), :class => 'btn'
   = link_to 'Back', kabupatens_path, :class => 'btn'

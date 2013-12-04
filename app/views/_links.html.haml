@@ -1,0 +1,47 @@
+%style
+  :sass
+    #links
+      margin-top: 0.5em
+      h3
+        margin-bottom: 0.5em
+      #add_link_trigger
+        display: block
+        margin: 0.5em 0 1.5em
+
+#links
+  %h3 Links
+  - for link in linkable.links
+    %div[link]
+      = link_to link.text, link.url, target: '_blank'
+      %span= raw(" &mdash; (")
+      - if can?(:manage, link)
+        = link_to "edit", "#", :class => 'open_form', 'data-form' => "edit_link_#{link.id}"
+        = raw("#{link_to('delete', polymorphic_path([linkable, link]), :class => 'delete_link', :method => :delete)}&nbsp;")
+      %span )
+
+    %div{id: "edit_link_#{link.id}", class: 'jqmWindow'}
+      %h3 Edit the Link
+      = form_for(link, :url => polymorphic_path([linkable, link]), method: :put) do |f|
+        %label{ :for => 'link_url'} URL
+        = f.text_field :url
+        %label{ :for => 'link_text'} Display text
+        = f.text_field :text
+        %p.actions
+          = f.submit "Confirm", class: 'submit'
+          = link_to "Cancel", "#", class: 'jqmClose'
+
+
+  = link_to "Add Link", "#", :class => 'open_form', 'data-form' => 'add_link', id: 'add_link_trigger'
+
+
+  #add_link.jqmWindow
+    %h3 Add a Link
+    = form_for(Link.new, :url => polymorphic_path([linkable, Link.new])) do |f|
+      %label{ :for => 'link_url'} URL
+      = f.text_field :url
+      %label{ :for => 'link_text'} Display text
+      = f.text_field :text
+      %p.actions
+        = f.submit "Confirm", class: 'submit'
+        = link_to "Cancel", "#", class: 'jqmClose'
+

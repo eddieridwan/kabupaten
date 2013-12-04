@@ -63,7 +63,7 @@ class Ability
   end
 
   def set_admin_permissions(current_user)
-    can :manage, [Kabupaten, Province, Project, Snippet, User]
+    can :manage, [Kabupaten, Link, Province, Project, Snippet, User]
   end
 
 end

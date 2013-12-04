@@ -10,6 +10,8 @@
 //= require nicEdit
 //= require jquery.multiselect
 //= require jquery.multiselect.filter
+//= require jqModal
+//= require dialogs
 
 //= require cocoon
 

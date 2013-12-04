@@ -31,6 +31,8 @@
         = sector.name
         %br
 
+= render :partial => '/links', :locals => {:linkable => @project}
+
 - if can? :update, @project
   = link_to 'Edit', edit_project_path(@project), :class => 'btn'
 = link_to 'Back', projects_path, :class => 'btn'

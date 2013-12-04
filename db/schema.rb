@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131129094158) do
+ActiveRecord::Schema.define(:version => 20131203042553) do
 
   create_table "contacts", :force => true do |t|
     t.string   "name"
@@ -50,6 +50,15 @@ ActiveRecord::Schema.define(:version => 20131129094158) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.text     "health_indicators"
+  end
+
+  create_table "links", :force => true do |t|
+    t.string   "url"
+    t.string   "text"
+    t.integer  "linkable_id"
+    t.string   "linkable_type"
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
   end
 
   create_table "project_contact_mappings", :force => true do |t|
