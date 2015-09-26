@@ -7,8 +7,32 @@ Your assistance in developing this project is most welcome.
 
 Ensure you switch to ruby 1.9.3.
 
-Install postgres: http://blog.willj.net/category/postgres/
+-- Install postgres --------------------
 
+brew install postgresql
+ln -sfv /opt/boxen/homebrew/opt/postgresql/*.plist ~/Library/LaunchAgents
+launchctl load ~/Library/LaunchAgents/homebrew.mxcl.postgresql.plist
+# Note that the installation creates a postgres database
+# Initialise database, which creates a role for your username with superuser privileges
+initdb /opt/boxen/homebrew/var/postgres
+
+When installing the postgres gem, including ARCHFLAGS is recommended:
+  ARCHFLAGS="-arch x86_64" gem install pg
+
+To have launchd start postgresql at login:
+    ln -sfv /opt/boxen/homebrew/opt/postgresql/*.plist ~/Library/LaunchAgents
+Then to load postgresql now:
+    launchctl load ~/Library/LaunchAgents/homebrew.mxcl.postgresql.plist
+Or, if you don't want/need launchctl, you can just run:
+    postgres -D /opt/boxen/homebrew/var/postgres
+
+# Create a postgres user 'root' with create db privilege
+createuser -U your-user -d root
+
+# To login to postgres
+psql postgres
+
+-- Setup repo and gems
   git clone git@github.com:eddieridwan/kabupaten.git
   cp config/database{.example,}.yml
   cp config/app_config{.example,}.yml
@@ -35,10 +59,11 @@ To run the app locally, set the following in /etc/hosts:
 In the browser, set the address to one of those local host names, eg
   kabupaten.local:5000
 
-Install heroku toolbelt (for deploying to heroku): https://toolbelt.heroku.com
-
 Use foreman to run the app locally, to mimic heroku:
+* https://github.com/ddollar/foreman
+    gem install foreman
 * set environment variables in the file .env
+    cp .env{.example,}
 * put the following line in the file Procfile
     web: bundle exec rails server -p $PORT
 * foreman start (defaults to port 5000)
@@ -60,4 +85,23 @@ Locally, the url for the tolk UI is:
 
   kabupaten.local:<port>/tolk
 
-There is basic authentication. Username and password is in the .env file.
+There is basic authentication for tolk. Username and password is in the .env file.
+
+== Deploy to heroku
+
+Install heroku toolbelt (for deploying to heroku): https://toolbelt.heroku.com
+
+* Login to heroku
+heroku login
+* Info on heroku cli: https://devcenter.heroku.com/articles/using-the-cli
+* List apps
+heroku apps
+* Check info on existing app
+heroku apps:info --app kabupaten
+* Add heroku git to git remote
+git remote add heroku git@heroku.com:kabupaten.git
+* Show current app config variables (some of which would be replicated in .env for the dev environment)
+heroku config
+
+* To deploy to heroku, https://devcenter.heroku.com/articles/getting-started-with-rails3#local-workstation-setup
+git push heroku master

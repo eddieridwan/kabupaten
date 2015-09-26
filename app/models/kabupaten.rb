@@ -28,7 +28,7 @@ class Kabupaten < ActiveRecord::Base
 
   def strip_empty_html_translation_fields
     # http://stackoverflow.com/questions/7414267/strip-html-from-string-ruby-on-rails
-    self.description = nil if ActionView::Base.full_sanitizer.sanitize(description).strip.blank?
+    self.description = nil if description.blank? || ActionView::Base.full_sanitizer.sanitize(description).strip.blank?
   end
 
 end
